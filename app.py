@@ -1,19 +1,27 @@
+import os
 import streamlit as st
 import fitz  # PyMuPDF
 import google.generativeai as genai
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
+
+# Get the API key
+API_KEY_GM = os.getenv("API_KEY_GM")
 
 # Configure Google Gemini API
-genai.configure(api_key='AIzaSyBbTlx6tf8U5eMqKb5o87uajhTROQvFSEQ')
+genai.configure(api_key=API_KEY_GM) # type: ignore
 
 def extract_text_from_pdf(uploaded_file):
     pdf = fitz.open(stream=uploaded_file.read(), filetype="pdf")
     text = ""
     for page in pdf:
-        text += page.get_text()
+        text += page.get_text() # type: ignore
     return text
 
 def ask_gemini_question(prompt):
-    model = genai.GenerativeModel("gemini-2.0-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash") # type: ignore
     response = model.generate_content(prompt)
     return response.text
 

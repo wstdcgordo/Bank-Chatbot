@@ -1,49 +1,234 @@
+import streamlit as st # Keep this at the very top
+import sqlite3
 import os
-import streamlit as st
-import fitz  # PyMuPDF
-import google.generativeai as genai
 from dotenv import load_dotenv
+import google.generativeai as genai
+import json
+from datetime import datetime
+import holidays
 
-# Load environment variables from .env
+# --- Streamlit Page Configuration (MUST BE FIRST STREMLIT COMMAND) ---
+st.set_page_config(page_title="BDO Banking Assistant", page_icon="🏦")
+
+# --- Configuration and Initialization ---
 load_dotenv()
+genai.configure(api_key=os.getenv("API_KEY_GM"))
+model = genai.GenerativeModel("gemini-2.0-flash")
 
-# Get the API key
-API_KEY_GM = os.getenv("API_KEY_GM")
+# Initialize database connection
+@st.cache_resource
+def get_db_connection():
+    conn = sqlite3.connect("bank_transactions.db", check_same_thread=False)
+    return conn
 
-# Configure Google Gemini API
-genai.configure(api_key=API_KEY_GM) # type: ignore
+conn = get_db_connection()
+cursor = conn.cursor()
 
-def extract_text_from_pdf(uploaded_file):
-    pdf = fitz.open(stream=uploaded_file.read(), filetype="pdf")
-    text = ""
-    for page in pdf:
-        text += page.get_text() # type: ignore
-    return text
+# Get database schema
+@st.cache_data
+def get_schema_string(_cursor_obj):
+    tables_info = []
+    _cursor_obj.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = [t[0] for t in _cursor_obj.fetchall()]
 
-def ask_gemini_question(prompt):
-    model = genai.GenerativeModel("gemini-2.0-flash") # type: ignore
-    response = model.generate_content(prompt)
-    return response.text
+    for table in tables:
+        _cursor_obj.execute(f"PRAGMA table_info({table})")
+        columns = _cursor_obj.fetchall()
+        col_defs = ", ".join([f"{col[1]} {col[2]}" for col in columns])
+        tables_info.append(f"{table}({col_defs})")
+    return "\n".join(tables_info)
 
-# Streamlit UI
-st.title("📄 Chat with Your PDF")
+schema = get_schema_string(cursor)
 
-# Upload PDF
-uploaded_pdf = st.file_uploader("Upload a PDF", type="pdf")
+# --- Holiday Data Fetching ---
+@st.cache_data
+def get_philippine_holidays_cached():
+    today = datetime.now()
+    current_year = today.year
+    next_year = today.year + 1
 
-if uploaded_pdf:
-    pdf_text = extract_text_from_pdf(uploaded_pdf)
-    st.success("PDF text extracted!")
+    ph_holidays = holidays.PH(years=[current_year, next_year])
 
-    # Input question
-    question = st.text_input("Ask a question about the PDF")
+    holiday_list = []
+    for date, name in sorted(ph_holidays.items()):
+        formatted_date = date.strftime('%B %d, %Y')
+        holiday_list.append(f"{formatted_date}: {name}")
+    return holiday_list
 
-    if question:
-        # Combine question with PDF content
-        prompt = f"You are a helpful assistant, and you will specifically cater bank transaction and related inquiries. Here's a document:\n\n{pdf_text}\n\nQuestion: {question}"
-        
+# --- Prompt Generation Function ---
+def get_banking_assistant_prompt(schema_str, conversation_history_list=None, query_results_with_headers=None):
+    ph_holidays = get_philippine_holidays_cached()
+    holidays_str = "\n".join([f"- {h}" for h in ph_holidays])
+
+    # Current date for context (adjusting for provided current time: June 11, 2025)
+    current_date_for_prompt = "June 11, 2025" # Hardcoding based on context, normally use datetime.now()
+
+    prompt_parts = [f"""
+You are a friendly and intelligent banking assistant that helps users understand their financial activity by translating questions into SQL and providing clear, conversational answers — similar to how you'd reply in a chat or web interface like Gemini.
+
+Your expertise is with BDO accounts, and you're familiar with Philippine banking habits, cities (including acronyms like QC, MKT, etc.), and common transaction types (e.g., service charges, deposits, ATM withdrawals).
+
+Database schema:
+{schema_str}
+
+Current Date: {current_date_for_prompt}
+
+Philippine Holidays (for context, not for SQL queries unless explicitly asked about transactions on these dates):
+{holidays_str}
+
+Guidelines for SQL generation:
+- For each user question, arrange the date in ascending order.
+- When summing amounts like Deposits or Withdrawals, always use COALESCE(column, 0) to treat NULL as zero.
+- Quote column names with spaces or special characters (e.g., "Branch / Source") in SQL.
+- For counts or comparisons, write WHERE conditions as needed (e.g., Balance < 30000).
+- For service charges, match using Transaction Details like '%service charge%'.
+- NULL balances should not be included in comparisons (treat as missing).
+- When a user asks about transactions during a holiday, try to identify the date(s) of that holiday from the provided list.
+
+When replying, first provide the SQL query, and then, using the results of that query, generate a friendly, conversational, and emotionally aware response. Do NOT include the SQL query in your final response to the user.
+
+Return your response as a Python dictionary with two keys:
+- "sql": The generated SQL query.
+- "natural_language_response": The friendly, conversational response generated by you, based on the query results.
+
+Important: The "natural_language_response" should be a complete, ready-to-display message. Directly incorporate the value from the SQL query results. For transaction details, always provide essential information like Date, Transaction Details, Branch, and the amount (Withdrawal or Deposit).
+
+Example:
+
+User: How much did I spend on service charges?
+
+Response:
+{{
+  "sql": "SELECT SUM(COALESCE(Withdrawals, 0)) FROM bank_transactions WHERE LOWER(\"Transaction Details\") LIKE '%service charge%';",
+  "natural_language_response": "You've spent a total of ₱500.00 on service charges. Is there anything else you'd like to check about your expenses?"
+}}
+
+Your responses should sound warm, conversational, and emotionally aware — like a smart banking assistant (e.g., Bank of America’s Erica, Axis Aha!).
+Use casual phrasing where appropriate. Add context or questions to prompt further conversation (e.g., 'Want help reviewing this?', 'Let me know if that looks off!').
+Avoid sounding robotic or too technical. Avoid repeating the user's question.
+Be brief, helpful, and brand-friendly.
+"""]
+
+    if conversation_history_list:
+        prompt_parts.append("\n--- Conversation History ---")
+        for turn in conversation_history_list:
+            if turn["role"] == "user":
+                prompt_parts.append(f"User: {turn['content']}")
+            elif turn["role"] == "assistant":
+                prompt_parts.append(f"Assistant: {turn['content']}")
+        prompt_parts.append("----------------------------")
+
+    if query_results_with_headers:
+        headers = query_results_with_headers['headers']
+        rows = query_results_with_headers['rows']
+
+        formatted_results = [headers]
+        for row in rows:
+            formatted_row = []
+            for item in row:
+                if isinstance(item, (int, float)):
+                    formatted_row.append(f"{item:,.2f}")
+                else:
+                    formatted_row.append(str(item))
+            formatted_results.append(formatted_row)
+
+        prompt_parts.append(f"\n--- SQL Query Results ---")
+        prompt_parts.append(json.dumps(formatted_results, indent=2))
+        prompt_parts.append("-------------------------")
+
+    return "\n".join(prompt_parts)
+
+# --- Gemini Interaction Function ---
+def get_gemini_response(user_question, model_obj, schema_prompt_func, conversation_history_list=None, query_results_with_headers=None):
+    full_prompt = f"{schema_prompt_func(schema, conversation_history_list, query_results_with_headers)}\n\nUser: {user_question}\n\nAssistant Response:"
+
+    try:
+        gemini_response = model_obj.generate_content(full_prompt)
+        content = gemini_response.text.strip()
+
+        if content.startswith("```json"):
+            json_str = content.strip().split('\n', 1)[1].rsplit('```', 1)[0]
+        elif content.startswith("```"):
+            json_str = content.strip().split('\n', 1)[1].rsplit('```', 1)[0]
+        else:
+            json_str = content
+
+        response_dict = json.loads(json_str)
+        return response_dict
+    except json.JSONDecodeError as e:
+        st.error(f"Error decoding JSON from Gemini: {e}")
+        st.code(f"Raw Gemini response:\n{content}")
+        return None
+    except Exception as e:
+        st.error(f"An error occurred during Gemini API call: {e}")
+        return None
+
+# --- Streamlit App Content (After set_page_config) ---
+st.title("🏦 BDO Banking Assistant")
+
+st.write("Hi there! I'm your friendly BDO banking assistant. How can I help you today?")
+st.write("You can ask me things like 'How much did I spend last month?' or 'Show me my recent deposits.'")
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+
+if user_question := st.chat_input("Ask me anything about your transactions..."):
+    st.session_state.messages.append({"role": "user", "content": user_question})
+    with st.chat_message("user"):
+        st.markdown(user_question)
+
+    exit_phrases = ["exit", "goodbye", "thank you", "thanks", "thats all", "that's all", "bye"]
+    if any(phrase in user_question.lower() for phrase in exit_phrases):
+        assistant_response = "Thanks for chatting! Have a great day!"
+        with st.chat_message("assistant"):
+            st.markdown(assistant_response)
+        st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+        st.stop()
+
+    with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
-            answer = ask_gemini_question(prompt)
+            response_for_sql = get_gemini_response(user_question, model, get_banking_assistant_prompt,
+                                                   conversation_history_list=st.session_state.messages)
 
-        st.markdown("### 🤖 Answer")
-        st.write(answer)
+            if not response_for_sql or "sql" not in response_for_sql:
+                assistant_response = "I'm sorry, I couldn't generate a SQL query for that request. Could you please rephrase it?"
+                st.markdown(assistant_response)
+                st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+                st.stop()
+
+            sql_query = response_for_sql["sql"]
+
+            try:
+                cursor.execute(sql_query)
+                query_results = cursor.fetchall()
+
+                column_headers = [description[0] for description in cursor.description]
+                query_results_with_headers = {"headers": column_headers, "rows": query_results}
+
+                final_response_dict = get_gemini_response(
+                    user_question, model, get_banking_assistant_prompt,
+                    conversation_history_list=st.session_state.messages,
+                    query_results_with_headers=query_results_with_headers
+                )
+
+                if final_response_dict and "natural_language_response" in final_response_dict:
+                    assistant_response_text = final_response_dict['natural_language_response']
+                    st.markdown(assistant_response_text)
+                    st.session_state.messages.append({"role": "assistant", "content": assistant_response_text})
+                else:
+                    assistant_response = "I executed the query, but I had trouble forming a clear response. Please try again."
+                    st.markdown(assistant_response)
+                    st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+
+            except sqlite3.Error as e:
+                assistant_response = f"I ran into an issue processing that request. Database error: {e}. Could you try rephrasing your question?"
+                st.markdown(assistant_response)
+                st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+            except Exception as e:
+                assistant_response = f"An unexpected error occurred: {e}. Please try again or rephrase your question."
+                st.markdown(assistant_response)
+                st.session_state.messages.append({"role": "assistant", "content": assistant_response})

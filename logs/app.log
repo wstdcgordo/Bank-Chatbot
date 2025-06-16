@@ -1,0 +1,564 @@
+2025-06-14 10:49:05,236 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:49:05,299 - __main__ - INFO - Database connection established or retrieved from cache.
+2025-06-14 10:49:05,300 - __main__ - INFO - Database schema retrieved and cached.
+2025-06-14 10:49:05,301 - __main__ - INFO - Initialized new chat session (messages in session_state).
+2025-06-14 10:49:16,057 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:49:16,067 - __main__ - INFO - User Query: hi
+2025-06-14 10:49:16,142 - __main__ - INFO - Philippine holidays fetched and cached.
+2025-06-14 10:49:17,485 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:49:17,486 - __main__ - INFO - Generated SQL Query: SELECT Balance FROM bank_transactions ORDER BY Date DESC LIMIT 1;
+2025-06-14 10:49:17,488 - __main__ - INFO - SQL Query Executed Successfully. Results: [(2512163.96,)]
+2025-06-14 10:49:18,651 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:49:18,652 - __main__ - INFO - Final Assistant Response (NL): Hi there! How can I help you manage your finances today? I can help you check your balance, review transactions, and more.
+2025-06-14 10:52:54,025 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:52:54,082 - __main__ - INFO - Database connection established or retrieved from cache.
+2025-06-14 10:52:54,083 - __main__ - INFO - Database schema retrieved and cached.
+2025-06-14 10:52:54,084 - __main__ - INFO - Initialized new chat session (messages in session_state).
+2025-06-14 10:54:11,842 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:54:11,898 - __main__ - INFO - Database connection established or retrieved from cache.
+2025-06-14 10:54:11,899 - __main__ - INFO - Database schema retrieved and cached.
+2025-06-14 10:54:11,901 - __main__ - INFO - Initialized new chat session (messages in session_state).
+2025-06-14 10:55:03,542 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:55:03,546 - __main__ - INFO - Initialized new chat session (messages in session_state).
+2025-06-14 10:55:06,080 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:55:06,087 - __main__ - INFO - User Query: hi
+2025-06-14 10:55:06,161 - __main__ - INFO - Philippine holidays fetched and cached.
+2025-06-14 10:55:08,219 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:55:08,220 - __main__ - INFO - Generated SQL Query: None
+2025-06-14 10:55:08,221 - __main__ - CRITICAL - An unexpected critical error occurred: argument 1 must be str, not None
+Traceback (most recent call last):
+  File "/Users/mochi/Projects/Bank-Chatbot/app.py", line 265, in <module>
+    cursor.execute(sql_query)
+TypeError: argument 1 must be str, not None
+2025-06-14 10:55:12,963 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:55:12,971 - __main__ - INFO - User Query: hi
+2025-06-14 10:55:14,938 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:55:14,939 - __main__ - INFO - Generated SQL Query: SELECT strftime('%Y-%m-%d %H:%M:%S', 'now', 'localtime');
+2025-06-14 10:55:14,940 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2025-06-14 10:55:14',)]
+2025-06-14 10:55:15,895 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:55:15,896 - __main__ - INFO - Final Assistant Response (NL): Hi! How can I help you with your account today? 
+2025-06-14 10:55:18,108 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:55:18,111 - __main__ - INFO - Initialized new chat session (messages in session_state).
+2025-06-14 10:55:19,994 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:55:20,002 - __main__ - INFO - User Query: hi
+2025-06-14 10:55:21,974 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:55:21,975 - __main__ - INFO - Generated SQL Query: SELECT 1;
+2025-06-14 10:55:21,975 - __main__ - INFO - SQL Query Executed Successfully. Results: [(1,)]
+2025-06-14 10:55:23,089 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:55:23,090 - __main__ - INFO - Final Assistant Response (NL): Hi there! Happy to help with your banking needs today. Just let me know what you'd like to check!
+2025-06-14 10:56:15,410 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:56:15,420 - __main__ - INFO - User Query: i can't remember what i spent in Cebu last January, i went there for Sinulog. can you help me remember it
+2025-06-14 10:56:18,500 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:56:18,500 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Withdrawals FROM bank_transactions WHERE "Branch / Source" LIKE '%Cebu%' AND Date BETWEEN '2025-01-01' AND '2025-01-31' AND Withdrawals > 0 ORDER BY Date ASC;
+2025-06-14 10:56:18,504 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2025-01-04 00:00:00', 'POS Purchase', 'BDO Cebu', 1283.59), ('2025-01-08 00:00:00', 'Fund Transfer to 7369118672', 'BDO Cebu', 3187.71), ('2025-01-16 00:00:00', 'Mobile Banking Transfer 5381866906', 'BDO Cebu', 8980.61), ('2025-01-17 00:00:00', 'Service Charge', 'BDO Cebu', 340.78), ('2025-01-20 00:00:00', 'POS Purchase', 'BDO Cebu', 3634.04), ('2025-01-26 00:00:00', 'Bills Payment', 'BDO Cebu', 3348.41), ('2025-01-29 00:00:00', 'ATM Withdrawal', 'BDO Cebu', 8090.37)]
+2025-06-14 10:56:20,933 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:56:20,935 - __main__ - INFO - Final Assistant Response (NL): Okay, I've checked your Cebu transactions from January 2025. Here's a summary:
+
+- January 4: ₱1,283.59 at BDO Cebu for POS Purchase
+- January 8: ₱3,187.71 at BDO Cebu for Fund Transfer to 7369118672
+- January 16: ₱8,980.61 at BDO Cebu for Mobile Banking Transfer 5381866906
+- January 17: ₱340.78 at BDO Cebu for Service Charge
+- January 20: ₱3,634.04 at BDO Cebu for POS Purchase
+- January 26: ₱3,348.41 at BDO Cebu for Bills Payment
+- January 29: ₱8,090.37 at BDO Cebu for ATM Withdrawal
+
+Hope this helps you remember your Sinulog trip expenses! Let me know if you need more details.
+2025-06-14 10:56:43,745 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:56:43,753 - __main__ - INFO - User Query: i can't remember what i spent in Cebu last January after Sinulog. can you help me remember it
+2025-06-14 10:56:45,519 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:56:45,519 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Withdrawals, Deposits FROM bank_transactions WHERE "Branch / Source" LIKE '%Cebu%' AND Date >= '2025-01-30' AND Date <= '2025-01-31' ORDER BY Date ASC;
+2025-06-14 10:56:45,520 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2025-01-30 00:00:00', 'Interest Credit', 'BDO Cebu', None, 19971.57)]
+2025-06-14 10:56:47,259 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:56:47,261 - __main__ - INFO - Final Assistant Response (NL): Okay, I've checked your Cebu transactions from January 30 to January 31. Here's what I found:
+
+- January 30: ₱19,971.57 at BDO Cebu for Interest Credit
+
+Hope this helps! Let me know if you need more details or have more questions.
+2025-06-14 10:56:53,994 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:56:53,999 - __main__ - INFO - Initialized new chat session (messages in session_state).
+2025-06-14 10:57:03,180 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:57:03,188 - __main__ - INFO - User Query: i can't remember what i spent in Cebu last January after Sinulog. can you help me remember it?
+2025-06-14 10:57:05,999 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:57:05,999 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Withdrawals FROM bank_transactions WHERE "Branch / Source" LIKE '%Cebu%' AND Date BETWEEN '2025-01-20' AND '2025-01-31' AND Withdrawals > 0 ORDER BY Date ASC;
+2025-06-14 10:57:06,001 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2025-01-20 00:00:00', 'POS Purchase', 'BDO Cebu', 3634.04), ('2025-01-26 00:00:00', 'Bills Payment', 'BDO Cebu', 3348.41), ('2025-01-29 00:00:00', 'ATM Withdrawal', 'BDO Cebu', 8090.37)]
+2025-06-14 10:57:07,690 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:57:07,691 - __main__ - INFO - Final Assistant Response (NL): Here's a summary of your transactions in Cebu after Sinulog last January:
+
+*   **January 20, 2025:** ₱3,634.04 at BDO Cebu for a POS Purchase.
+*   **January 26, 2025:** ₱3,348.41 at BDO Cebu for Bills Payment.
+*   **January 29, 2025:** ₱8,090.37 at BDO Cebu for an ATM Withdrawal.
+
+Hope this helps you recall your expenses! Anything else I can help you with?
+2025-06-14 10:57:23,723 - __main__ - INFO - Application started or reloaded.
+2025-06-14 10:57:23,730 - __main__ - INFO - User Query: how about my other transactions after Sinulog last January
+2025-06-14 10:57:42,777 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:57:42,777 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Withdrawals, Deposits FROM bank_transactions WHERE Date > '2025-01-20' ORDER BY Date ASC;
+2025-06-14 10:57:42,779 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2025-01-20 00:00:00', 'POS Purchase', 'BDO Cebu', 3634.04, None), ('2025-01-21 00:00:00', 'Fund Transfer to 1172893522', 'BDO QC', 6064.38, None), ('2025-01-22 00:00:00', 'Received from', 'BDO QC', None, 546.11), ('2025-01-22 00:00:00', 'Fund Transfer to 2194673401', 'BDO Online', 5237.74, None), ('2025-01-22 00:00:00', 'POS Purchase', 'BDO QC', 6148.45, None), ('2025-01-22 00:00:00', 'ATM Withdrawal', 'BDO Davao', 4469.53, None), ('2025-01-23 00:00:00', 'Mobile Banking Transfer 4890628295', 'BDO Online', 6191.95, None), ('2025-01-24 00:00:00', 'Bills Payment', 'BDO Makati', 1411.82, None), ('2025-01-25 00:00:00', 'Deposit: Salary', 'BDO QC', None, 15400.55), ('2025-01-26 00:00:00', 'POS Purchase', 'BDO Makati', 8073.76, None), ('2025-01-26 00:00:00', 'Bills Payment', 'BDO Cebu', 3348.41, None), ('2025-01-27 00:00:00', 'Interest Credit', 'BDO Online', None, 15490.9), ('2025-01-28 00:00:00', 'Deposit: Salary', 'BDO Online', None, 12938.78), ('2025-01-28 00:00:00', 'Fund Transfer to 4728940550', 'BDO Online', 5078.35, None), ('2025-01-29 00:00:00', 'Fund Transfer to 8325785916', 'BDO Davao', 9800.0, None), ('2025-01-29 00:00:00', 'Interest Credit', 'BDO Cebu', None, 16313.14), ('2025-01-29 00:00:00', 'ATM Withdrawal', 'BDO Cebu', 8090.37, None), ('2025-01-30 00:00:00', 'Check Deposit', 'BDO QC', None, 7613.93), ('2025-01-30 00:00:00', 'Interest Credit', 'BDO Cebu', None, 19971.57), ('2025-01-30 00:00:00', 'Bills Payment', 'BDO Makati', 8567.65, None), ('2025-02-01 00:00:00', 'Bills Payment', 'BDO QC', 3081.4, None), ('2025-02-01 00:00:00', 'Interest Credit', 'BDO Taguig', None, 2215.43), ('2025-02-01 00:00:00', 'Service Charge', 'BDO Makati', 193.18, None), ('2025-02-02 00:00:00', 'Deposit: Salary', 'BDO Online', None, 8382.47), ('2025-02-03 00:00:00', 'ATM Withdrawal', 'BDO Online', 9124.0, None), ('2025-02-03 00:00:00', 'ATM Withdrawal', 'BDO Makati', 9501.16, None), ('2025-02-03 00:00:00', 'ATM Withdrawal', 'BDO Davao', 3386.05, None), ('2025-02-05 00:00:00', 'Received from', 'BDO Cebu', None, 11505.26), ('2025-02-05 00:00:00', 'POS Purchase', 'BDO Online', 3920.27, None), ('2025-02-05 00:00:00', 'Mobile Banking Transfer 9523104008', 'BDO QC', 3741.63, None), ('2025-02-05 00:00:00', 'Check Deposit', 'BDO Online', None, 407.28), ('2025-02-06 00:00:00', 'Received from', 'BDO Cebu', None, 17438.08), ('2025-02-06 00:00:00', 'Service Charge', 'BDO Makati', 496.62, None), ('2025-02-07 00:00:00', 'Deposit: Salary', 'BDO Cebu', None, 6104.04), ('2025-02-07 00:00:00', 'Interest Credit', 'BDO Makati', None, 7004.14), ('2025-02-07 00:00:00', 'Interest Credit', 'BDO Davao', None, 20117.25), ('2025-02-07 00:00:00', 'Mobile Banking Transfer 4145461251', 'BDO Makati', 5837.78, None), ('2025-02-08 00:00:00', 'Mobile Banking Transfer 7752880042', 'BDO Makati', 3672.88, None), ('2025-02-08 00:00:00', 'POS Purchase', 'BDO Taguig', 3305.34, None), ('2025-02-09 00:00:00', 'Fund Transfer to 7471636437', 'BDO Makati', 3180.12, None), ('2025-02-09 00:00:00', 'Service Charge', 'BDO Taguig', 78.59, None), ('2025-02-09 00:00:00', 'Fund Transfer to 8924383984', 'BDO Online', 9651.76, None), ('2025-02-09 00:00:00', 'Fund Transfer to 4569592370', 'BDO QC', 479.2, None), ('2025-02-10 00:00:00', 'Fund Transfer to 2439622619', 'BDO Davao', 939.48, None), ('2025-02-12 00:00:00', 'Service Charge', 'BDO Cebu', 470.84, None), ('2025-02-12 00:00:00', 'Bills Payment', 'BDO Cebu', 2868.62, None), ('2025-02-14 00:00:00', 'POS Purchase', 'BDO Cebu', 1676.06, None), ('2025-02-14 00:00:00', 'Deposit: Salary', 'BDO Davao', None, 10670.04), ('2025-02-14 00:00:00', 'Interest Credit', 'BDO Online', None, 16547.21), ('2025-02-14 00:00:00', 'POS Purchase', 'BDO QC', 6835.39, None), ('2025-02-15 00:00:00', 'Fund Transfer to 5634396131', 'BDO Cebu', 516.46, None), ('2025-02-15 00:00:00', 'Deposit: Salary', 'BDO Online', None, 24076.04), ('2025-02-16 00:00:00', 'POS Purchase', 'BDO QC', 341.81, None), ('2025-02-16 00:00:00', 'Deposit: Salary', 'BDO Makati', None, 7902.45), ('2025-02-16 00:00:00', 'Check Deposit', 'BDO Online', None, 6766.75), ('2025-02-16 00:00:00', 'Fund Transfer to 2389803385', 'BDO Cebu', 7197.68, None), ('2025-02-17 00:00:00', 'Received from', 'BDO Online', None, 24270.57), ('2025-02-17 00:00:00', 'ATM Withdrawal', 'BDO Davao', 4648.31, None), ('2025-02-18 00:00:00', 'Deposit: Salary', 'BDO Cebu', None, 4146.11), ('2025-02-18 00:00:00', 'Deposit: Salary', 'BDO Makati', None, 21244.58), ('2025-02-19 00:00:00', 'Received from', 'BDO Taguig', None, 15990.69), ('2025-02-19 00:00:00', 'Fund Transfer to 9292791081', 'BDO Online', 345.38, None), ('2025-02-20 00:00:00', 'Fund Transfer to 1613549255', 'BDO Davao', 9930.11, None), ('2025-02-21 00:00:00', 'Received from', 'BDO Online', None, 6407.51), ('2025-02-21 00:00:00', 'POS Purchase', 'BDO Cebu', 7292.84, None), ('2025-02-21 00:00:00', 'Deposit: Salary', 'BDO Taguig', None, 19169.28), ('2025-02-22 00:00:00', 'Bills Payment', 'BDO Cebu', 2875.43, None), ('2025-02-22 00:00:00', 'Received from', 'BDO Cebu', None, 23300.73), ('2025-02-23 00:00:00', 'POS Purchase', 'BDO Davao', 3173.15, None), ('2025-02-25 00:00:00', 'Interest Credit', 'BDO Online', None, 5071.9), ('2025-02-25 00:00:00', 'POS Purchase', 'BDO QC', 4660.19, None), ('2025-02-25 00:00:00', 'Bills Payment', 'BDO QC', 3781.51, None), ('2025-02-25 00:00:00', 'Fund Transfer to 1287814151', 'BDO Taguig', 2653.07, None), ('2025-02-25 00:00:00', 'ATM Withdrawal', 'BDO Cebu', 9489.79, None), ('2025-02-26 00:00:00', 'Interest Credit', 'BDO Cebu', None, 8125.38), ('2025-02-28 00:00:00', 'Received from', 'BDO Taguig', None, 12297.18), ('2025-02-28 00:00:00', 'Received from', 'BDO Davao', None, 14735.87), ('2025-02-28 00:00:00', 'Mobile Banking Transfer 8088660633', 'BDO Davao', 1614.61, None), ('2025-02-28 00:00:00', 'Bills Payment', 'BDO Makati', 1886.12, None), ('2025-02-28 00:00:00', 'Interest Credit', 'BDO Cebu', None, 14476.07), ('2025-02-28 00:00:00', 'Bills Payment', 'BDO Makati', 135.1, None), ('2025-03-01 00:00:00', 'Deposit: Salary', 'BDO Taguig', None, 3910.09), ('2025-03-01 00:00:00', 'Mobile Banking Transfer 1579187439', 'BDO Davao', 4837.46, None), ('2025-03-01 00:00:00', 'Deposit: Salary', 'BDO Online', None, 16857.14), ('2025-03-01 00:00:00', 'Deposit: Salary', 'BDO Makati', None, 10853.73), ('2025-03-02 00:00:00', 'Bills Payment', 'BDO QC', 6109.94, None), ('2025-03-04 00:00:00', 'Fund Transfer to 3127657643', 'BDO Makati', 9972.0, None), ('2025-03-05 00:00:00', 'Interest Credit', 'BDO Online', None, 9198.77), ('2025-03-05 00:00:00', 'Deposit: Salary', 'BDO Cebu', None, 15168.7), ('2025-03-07 00:00:00', 'Mobile Banking Transfer 5336127859', 'BDO Taguig', 630.75, None), ('2025-03-07 00:00:00', 'ATM Withdrawal', 'BDO QC', 8235.85, None), ('2025-03-07 00:00:00', 'Mobile Banking Transfer 4638577630', 'BDO Cebu', 5413.24, None), ('2025-03-08 00:00:00', 'Bills Payment', 'BDO QC', 9993.8, None), ('2025-03-08 00:00:00', 'Mobile Banking Transfer 8733575600', 'BDO Taguig', 1808.02, None), ('2025-03-08 00:00:00', 'Fund Transfer to 3540741595', 'BDO QC', 2441.86, None), ('2025-03-09 00:00:00', 'Service Charge', 'BDO Online', 358.74, None), ('2025-03-09 00:00:00', 'Deposit: Salary', 'BDO Davao', None, 24306.54), ('2025-03-10 00:00:00', 'POS Purchase', 'BDO QC', 4123.5, None), ('2025-03-10 00:00:00', 'Deposit: Salary', 'BDO Davao', None, 22511.17), ('2025-03-10 00:00:00', 'POS Purchase', 'BDO Cebu', 8589.66, None), ('2025-03-11 00:00:00', 'Interest Credit', 'BDO Makati', None, 4633.84), ('2025-03-12 00:00:00', 'Interest Credit', 'BDO QC', None, 8400.71), ('2025-03-12 00:00:00', 'Mobile Banking Transfer 4273856102', 'BDO Cebu', 8952.13, None), ('2025-03-12 00:00:00', 'Check Deposit', 'BDO Online', None, 6374.77), ('2025-03-12 00:00:00', 'Service Charge', 'BDO Taguig', 386.38, None), ('2025-03-12 00:00:00', 'Mobile Banking Transfer 7751356568', 'BDO Makati', 2448.34, None), ('2025-03-13 00:00:00', 'Interest Credit', 'BDO QC', None, 21442.07), ('2025-03-14 00:00:00', 'Bills Payment', 'BDO Taguig', 4635.76, None), ('2025-03-14 00:00:00', 'Received from', 'BDO Makati', None, 1359.65), ('2025-03-15 00:00:00', 'Mobile Banking Transfer 9239688178', 'BDO QC', 2075.77, None), ('2025-03-15 00:00:00', 'Received from', 'BDO Online', None, 23858.08), ('2025-03-15 00:00:00', 'Interest Credit', 'BDO QC', None, 9255.43), ('2025-03-16 00:00:00', 'POS Purchase', 'BDO Makati', 8976.27, None), ('2025-03-16 00:00:00', 'Mobile Banking Transfer 9263135031', 'BDO Makati', 6905.11, None), ('2025-03-17 00:00:00', 'Check Deposit', 'BDO Davao', None, 24701.78), ('2025-03-18 00:00:00', 'Deposit: Salary', 'BDO Cebu', None, 8843.54), ('2025-03-18 00:00:00', 'Check Deposit', 'BDO QC', None, 11050.09), ('2025-03-18 00:00:00', 'ATM Withdrawal', 'BDO Taguig', 7477.2, None), ('2025-03-19 00:00:00', 'Deposit: Salary', 'BDO Online', None, 7021.54), ('2025-03-19 00:00:00', 'Fund Transfer to 2072355594', 'BDO Davao', 8674.18, None), ('2025-03-19 00:00:00', 'Fund Transfer to 8392190335', 'BDO Cebu', 9344.14, None), ('2025-03-21 00:00:00', 'Check Deposit', 'BDO Cebu', None, 23929.79), ('2025-03-22 00:00:00', 'Received from', 'BDO QC', None, 9208.25), ('2025-03-23 00:00:00', 'ATM Withdrawal', 'BDO Davao', 6268.27, None), ('2025-03-24 00:00:00', 'Check Deposit', 'BDO Taguig', None, 12594.69), ('2025-03-24 00:00:00', 'Interest Credit', 'BDO QC', None, 14971.44), ('2025-03-25 00:00:00', 'Service Charge', 'BDO Cebu', 222.37, None), ('2025-03-25 00:00:00', 'ATM Withdrawal', 'BDO Cebu', 114.47, None), ('2025-03-26 00:00:00', 'Check Deposit', 'BDO Davao', None, 6015.72), ('2025-03-26 00:00:00', 'Fund Transfer to 7077131430', 'BDO Makati', 2834.85, None), ('2025-03-26 00:00:00', 'Bills Payment', 'BDO Online', 329.45, None), ('2025-03-26 00:00:00', 'Fund Transfer to 7682327733', 'BDO Davao', 6819.63, None), ('2025-03-27 00:00:00', 'Deposit: Salary', 'BDO QC', None, 9301.22), ('2025-03-27 00:00:00', 'Mobile Banking Transfer 8901585274', 'BDO Online', 1076.22, None), ('2025-03-27 00:00:00', 'Service Charge', 'BDO Cebu', 295.71, None), ('2025-03-27 00:00:00', 'Bills Payment', 'BDO QC', 3888.94, None), ('2025-03-28 00:00:00', 'Fund Transfer to 3373077218', 'BDO Taguig', 456.68, None), ('2025-03-28 00:00:00', 'Service Charge', 'BDO Taguig', 387.26, None), ('2025-03-31 00:00:00', 'POS Purchase', 'BDO Taguig', 1286.18, None), ('2025-04-03 00:00:00', 'Check Deposit', 'BDO Online', None, 24366.41), ('2025-04-03 00:00:00', 'Bills Payment', 'BDO Makati', 8105.67, None), ('2025-04-05 00:00:00', 'Check Deposit', 'BDO QC', None, 17083.46), ('2025-04-06 00:00:00', 'ATM Withdrawal', 'BDO QC', 2309.53, None), ('2025-04-08 00:00:00', 'Received from', 'BDO QC', None, 20793.06), ('2025-04-09 00:00:00', 'Check Deposit', 'BDO Taguig', None, 7574.85), ('2025-04-09 00:00:00', 'Service Charge', 'BDO Online', 86.11, None), ('2025-04-09 00:00:00', 'Service Charge', 'BDO Online', 224.72, None), ('2025-04-09 00:00:00', 'ATM Withdrawal', 'BDO Makati', 6379.42, None), ('2025-04-10 00:00:00', 'Mobile Banking Transfer 9547119184', 'BDO Cebu', 8615.65, None), ('2025-04-13 00:00:00', 'POS Purchase', 'BDO Cebu', 3197.93, None), ('2025-04-14 00:00:00', 'Deposit: Salary', 'BDO Makati', None, 24929.32), ('2025-04-14 00:00:00', 'Bills Payment', 'BDO Cebu', 6184.79, None), ('2025-04-14 00:00:00', 'Interest Credit', 'BDO Cebu', None, 14479.12), ('2025-04-15 00:00:00', 'Interest Credit', 'BDO Taguig', None, 2210.32), ('2025-04-15 00:00:00', 'Service Charge', 'BDO Makati', 152.79, None), ('2025-04-16 00:00:00', 'Mobile Banking Transfer 4031281545', 'BDO Davao', 7301.28, None), ('2025-04-16 00:00:00', 'Deposit: Salary', 'BDO Cebu', None, 14436.4), ('2025-04-16 00:00:00', 'POS Purchase', 'BDO QC', 5410.26, None), ('2025-04-17 00:00:00', 'Mobile Banking Transfer 1818112342', 'BDO Cebu', 1015.39, None), ('2025-04-18 00:00:00', 'Interest Credit', 'BDO Online', None, 20559.97), ('2025-04-18 00:00:00', 'Service Charge', 'BDO Makati', 254.02, None), ('2025-04-18 00:00:00', 'POS Purchase', 'BDO QC', 9764.44, None), ('2025-04-18 00:00:00', 'Mobile Banking Transfer 3057629778', 'BDO Davao', 2638.8, None), ('2025-04-19 00:00:00', 'Bills Payment', 'BDO Online', 8820.38, None), ('2025-04-19 00:00:00', 'Service Charge', 'BDO Davao', 424.35, None), ('2025-04-20 00:00:00', 'Deposit: Salary', 'BDO Cebu', None, 4145.01), ('2025-04-21 00:00:00', 'POS Purchase', 'BDO Taguig', 1827.09, None), ('2025-04-21 00:00:00', 'ATM Withdrawal', 'BDO Online', 627.24, None), ('2025-04-21 00:00:00', 'Deposit: Salary', 'BDO Davao', None, 16284.02), ('2025-04-22 00:00:00', 'Bills Payment', 'BDO Taguig', 4042.42, None), ('2025-04-22 00:00:00', 'Check Deposit', 'BDO QC', None, 24521.29), ('2025-04-23 00:00:00', 'Mobile Banking Transfer 6528675352', 'BDO Online', 6540.33, None), ('2025-04-23 00:00:00', 'Received from', 'BDO Cebu', None, 20531.68), ('2025-04-24 00:00:00', 'Bills Payment', 'BDO Makati', 191.74, None), ('2025-04-24 00:00:00', 'ATM Withdrawal', 'BDO QC', 4237.06, None), ('2025-04-26 00:00:00', 'POS Purchase', 'BDO Cebu', 4369.84, None), ('2025-04-26 00:00:00', 'Check Deposit', 'BDO Makati', None, 16903.43), ('2025-04-26 00:00:00', 'Service Charge', 'BDO Davao', 73.15, None), ('2025-04-28 00:00:00', 'Service Charge', 'BDO Taguig', 255.75, None), ('2025-04-29 00:00:00', 'Deposit: Salary', 'BDO Makati', None, 18324.5), ('2025-04-30 00:00:00', 'Received from', 'BDO Cebu', None, 21163.75), ('2025-04-30 00:00:00', 'Fund Transfer to 1541964762', 'BDO QC', 8103.76, None), ('2025-04-30 00:00:00', 'Check Deposit', 'BDO Taguig', None, 7916.5), ('2025-04-30 00:00:00', 'POS Purchase', 'BDO Makati', 2489.42, None), ('2025-05-01 00:00:00', 'Mobile Banking Transfer 8995059760', 'BDO Taguig', 8168.56, None), ('2025-05-01 00:00:00', 'POS Purchase', 'BDO Cebu', 1083.61, None), ('2025-05-02 00:00:00', 'Check Deposit', 'BDO QC', None, 16288.59), ('2025-05-03 00:00:00', 'Check Deposit', 'BDO Cebu', None, 14603.27), ('2025-05-03 00:00:00', 'Fund Transfer to 1288335378', 'BDO Davao', 9237.55, None), ('2025-05-05 00:00:00', 'POS Purchase', 'BDO Cebu', 5625.06, None), ('2025-05-06 00:00:00', 'Received from', 'BDO Makati', None, 21298.43), ('2025-05-06 00:00:00', 'ATM Withdrawal', 'BDO Taguig', 8050.84, None), ('2025-05-06 00:00:00', 'Deposit: Salary', 'BDO Makati', None, 18418.3), ('2025-05-06 00:00:00', 'Deposit: Salary', 'BDO QC', None, 15675.32), ('2025-05-07 00:00:00', 'Service Charge', 'BDO Davao', 162.54, None), ('2025-05-08 00:00:00', 'ATM Withdrawal', 'BDO Makati', 9986.01, None), ('2025-05-08 00:00:00', 'POS Purchase', 'BDO Taguig', 7577.13, None), ('2025-05-08 00:00:00', 'Deposit: Salary', 'BDO Makati', None, 14110.83), ('2025-05-08 00:00:00', 'Received from', 'BDO QC', None, 16373.0), ('2025-05-08 00:00:00', 'Deposit: Salary', 'BDO Davao', None, 16783.61), ('2025-05-08 00:00:00', 'POS Purchase', 'BDO Online', 3152.25, None), ('2025-05-10 00:00:00', 'Bills Payment', 'BDO Davao', 8716.93, None), ('2025-05-10 00:00:00', 'Interest Credit', 'BDO Taguig', None, 5765.83), ('2025-05-10 00:00:00', 'Check Deposit', 'BDO Online', None, 2738.02), ('2025-05-11 00:00:00', 'Bills Payment', 'BDO QC', 5847.84, None), ('2025-05-11 00:00:00', 'Service Charge', 'BDO Taguig', 421.22, None), ('2025-05-11 00:00:00', 'Deposit: Salary', 'BDO Online', None, 8764.23), ('2025-05-11 00:00:00', 'Mobile Banking Transfer 2928130926', 'BDO Taguig', 2920.79, None), ('2025-05-12 00:00:00', 'Received from', 'BDO Makati', None, 17039.06), ('2025-05-13 00:00:00', 'POS Purchase', 'BDO Online', 7002.25, None), ('2025-05-13 00:00:00', 'Mobile Banking Transfer 3772636814', 'BDO Cebu', 2767.26, None), ('2025-05-13 00:00:00', 'Interest Credit', 'BDO Taguig', None, 16906.92), ('2025-05-14 00:00:00', 'Interest Credit', 'BDO Davao', None, 2019.04), ('2025-05-15 00:00:00', 'Deposit: Salary', 'BDO Online', None, 21109.85), ('2025-05-15 00:00:00', 'Deposit: Salary', 'BDO Cebu', None, 14891.36), ('2025-05-15 00:00:00', 'Service Charge', 'BDO Cebu', 53.64, None)]
+2025-06-14 10:58:17,686 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 10:58:17,693 - __main__ - INFO - Final Assistant Response (NL): Here's a detailed list of your transactions starting January 20, 2025:
+
+*   **January 20, 2025:** ₱3,634.04 at BDO Cebu for a POS Purchase.
+*   **January 21, 2025:** ₱6,064.38 at BDO QC for a Fund Transfer to 1172893522.
+*   **January 22, 2025:** Received ₱546.11 from BDO QC.
+*   **January 22, 2025:** ₱5,237.74 at BDO Online for a Fund Transfer to 2194673401.
+*   **January 22, 2025:** ₱6,148.45 at BDO QC for a POS Purchase.
+*   **January 22, 2025:** ₱4,469.53 at BDO Davao for an ATM Withdrawal.
+*   **January 23, 2025:** ₱6,191.95 at BDO Online for a Mobile Banking Transfer 4890628295.
+*   **January 24, 2025:** ₱1,411.82 at BDO Makati for Bills Payment.
+*   **January 25, 2025:** Deposit of ₱15,400.55 (Salary) at BDO QC.
+*   **January 26, 2025:** ₱8,073.76 at BDO Makati for a POS Purchase.
+*   **January 26, 2025:** ₱3,348.41 at BDO Cebu for Bills Payment.
+*   **January 27, 2025:** Interest Credit of ₱15,490.90 at BDO Online.
+*   **January 28, 2025:** Deposit of ₱12,938.78 (Salary) at BDO Online.
+*   **January 28, 2025:** ₱5,078.35 at BDO Online for a Fund Transfer to 4728940550.
+*   **January 29, 2025:** ₱9,800.00 at BDO Davao for a Fund Transfer to 8325785916.
+*   **January 29, 2025:** Interest Credit of ₱16,313.14 at BDO Cebu.
+*   **January 29, 2025:** ₱8,090.37 at BDO Cebu for an ATM Withdrawal.
+*   **January 30, 2025:** Check Deposit of ₱7,613.93 at BDO QC.
+*   **January 30, 2025:** Interest Credit of ₱19,971.57 at BDO Cebu.
+*   **January 30, 2025:** ₱8,567.65 at BDO Makati for Bills Payment.
+*   **February 01, 2025:** ₱3,081.40 at BDO QC for Bills Payment.
+*   **February 01, 2025:** Interest Credit of ₱2,215.43 at BDO Taguig.
+*   **February 01, 2025:** ₱193.18 at BDO Makati for a Service Charge.
+*   **February 02, 2025:** Deposit of ₱8,382.47 (Salary) at BDO Online.
+*   **February 03, 2025:** ₱9,124.00 at BDO Online for an ATM Withdrawal.
+*   **February 03, 2025:** ₱9,501.16 at BDO Makati for an ATM Withdrawal.
+*   **February 03, 2025:** ₱3,386.05 at BDO Davao for an ATM Withdrawal.
+*   **February 05, 2025:** Received ₱11,505.26 from BDO Cebu.
+*   **February 05, 2025:** ₱3,920.27 at BDO Online for a POS Purchase.
+*   **February 05, 2025:** ₱3,741.63 at BDO QC for a Mobile Banking Transfer 9523104008.
+*   **February 05, 2025:** Check Deposit of ₱407.28 at BDO Online.
+*   **February 06, 2025:** Received ₱17,438.08 from BDO Cebu.
+*   **February 06, 2025:** ₱496.62 at BDO Makati for a Service Charge.
+*   **February 07, 2025:** Deposit of ₱6,104.04 (Salary) at BDO Cebu.
+*   **February 07, 2025:** Interest Credit of ₱7,004.14 at BDO Makati.
+*   **February 07, 2025:** Interest Credit of ₱20,117.25 at BDO Davao.
+*   **February 07, 2025:** ₱5,837.78 at BDO Makati for a Mobile Banking Transfer 4145461251.
+*   **February 08, 2025:** ₱3,672.88 at BDO Makati for a Mobile Banking Transfer 7752880042.
+*   **February 08, 2025:** ₱3,305.34 at BDO Taguig for a POS Purchase.
+*   **February 09, 2025:** ₱3,180.12 at BDO Makati for a Fund Transfer to 7471636437.
+*   **February 09, 2025:** ₱78.59 at BDO Taguig for a Service Charge.
+*   **February 09, 2025:** ₱9,651.76 at BDO Online for a Fund Transfer to 8924383984.
+*   **February 09, 2025:** ₱479.20 at BDO QC for a Fund Transfer to 4569592370.
+*   **February 10, 2025:** ₱939.48 at BDO Davao for a Fund Transfer to 2439622619.
+*   **February 12, 2025:** ₱470.84 at BDO Cebu for a Service Charge.
+*   **February 12, 2025:** ₱2,868.62 at BDO Cebu for Bills Payment.
+*   **February 14, 2025:** ₱1,676.06 at BDO Cebu for a POS Purchase.
+*   **February 14, 2025:** Deposit of ₱10,670.04 (Salary) at BDO Davao.
+*   **February 14, 2025:** Interest Credit of ₱16,547.21 at BDO Online.
+*   **February 14, 2025:** ₱6,835.39 at BDO QC for a POS Purchase.
+*   **February 15, 2025:** ₱516.46 at BDO Cebu for a Fund Transfer to 5634396131.
+*   **February 15, 2025:** Deposit of ₱24,076.04 (Salary) at BDO Online.
+*   **February 16, 2025:** ₱341.81 at BDO QC for a POS Purchase.
+*   **February 16, 2025:** Deposit of ₱7,902.45 (Salary) at BDO Makati.
+*   **February 16, 2025:** Check Deposit of ₱6,766.75 at BDO Online.
+*   **February 16, 2025:** ₱7,197.68 at BDO Cebu for a Fund Transfer to 2389803385.
+*   **February 17, 2025:** Received ₱24,270.57 from BDO Online.
+*   **February 17, 2025:** ₱4,648.31 at BDO Davao for an ATM Withdrawal.
+*   **February 18, 2025:** Deposit of ₱4,146.11 (Salary) at BDO Cebu.
+*   **February 18, 2025:** Deposit of ₱21,244.58 (Salary) at BDO Makati.
+*   **February 19, 2025:** Received ₱15,990.69 from BDO Taguig.
+*   **February 19, 2025:** ₱345.38 at BDO Online for a Fund Transfer to 9292791081.
+*   **February 20, 2025:** ₱9,930.11 at BDO Davao for a Fund Transfer to 1613549255.
+*   **February 21, 2025:** Received ₱6,407.51 from BDO Online.
+*   **February 21, 2025:** ₱7,292.84 at BDO Cebu for a POS Purchase.
+*   **February 21, 2025:** Deposit of ₱19,169.28 (Salary) at BDO Taguig.
+*   **February 22, 2025:** ₱2,875.43 at BDO Cebu for Bills Payment.
+*   **February 22, 2025:** Received ₱23,300.73 from BDO Cebu.
+*   **February 23, 2025:** ₱3,173.15 at BDO Davao for a POS Purchase.
+*   **February 25, 2025:** Interest Credit of ₱5,071.90 at BDO Online.
+*   **February 25, 2025:** ₱4,660.19 at BDO QC for a POS Purchase.
+*   **February 25, 2025:** ₱3,781.51 at BDO QC for Bills Payment.
+*   **February 25, 2025:** ₱2,653.07 at BDO Taguig for a Fund Transfer to 1287814151.
+*   **February 25, 2025:** ₱9,489.79 at BDO Cebu for an ATM Withdrawal.
+*   **February 26, 2025:** Interest Credit of ₱8,125.38 at BDO Cebu.
+*   **February 28, 2025:** Received ₱12,297.18 from BDO Taguig.
+*   **February 28, 2025:** Received ₱14,735.87 from BDO Davao.
+*   **February 28, 2025:** ₱1,614.61 at BDO Davao for a Mobile Banking Transfer 8088660633.
+*   **February 28, 2025:** ₱1,886.12 at BDO Makati for Bills Payment.
+*   **February 28, 2025:** Interest Credit of ₱14,476.07 at BDO Cebu.
+*   **February 28, 2025:** ₱135.10 at BDO Makati for Bills Payment.
+*   **March 01, 2025:** Deposit of ₱3,910.09 (Salary) at BDO Taguig.
+*   **March 01, 2025:** ₱4,837.46 at BDO Davao for a Mobile Banking Transfer 1579187439.
+*   **March 01, 2025:** Deposit of ₱16,857.14 (Salary) at BDO Online.
+*   **March 01, 2025:** Deposit of ₱10,853.73 (Salary) at BDO Makati.
+*   **March 02, 2025:** ₱6,109.94 at BDO QC for Bills Payment.
+*   **March 04, 2025:** ₱9,972.00 at BDO Makati for a Fund Transfer to 3127657643.
+*   **March 05, 2025:** Interest Credit of ₱9,198.77 at BDO Online.
+*   **March 05, 2025:** Deposit of ₱15,168.70 (Salary) at BDO Cebu.
+*   **March 07, 2025:** ₱630.75 at BDO Taguig for a Mobile Banking Transfer 5336127859.
+*   **March 07, 2025:** ₱8,235.85 at BDO QC for an ATM Withdrawal.
+*   **March 07, 2025:** ₱5,413.24 at BDO Cebu for a Mobile Banking Transfer 4638577630.
+*   **March 08, 2025:** ₱9,993.80 at BDO QC for Bills Payment.
+*   **March 08, 2025:** ₱1,808.02 at BDO Taguig for a Mobile Banking Transfer 8733575600.
+*   **March 08, 2025:** ₱2,441.86 at BDO QC for a Fund Transfer to 3540741595.
+*   **March 09, 2025:** ₱358.74 at BDO Online for a Service Charge.
+*   **March 09, 2025:** Deposit of ₱24,306.54 (Salary) at BDO Davao.
+*   **March 10, 2025:** ₱4,123.50 at BDO QC for a POS Purchase.
+*   **March 10, 2025:** Deposit of ₱22,511.17 (Salary) at BDO Davao.
+*   **March 10, 2025:** ₱8,589.66 at BDO Cebu for a POS Purchase.
+*   **March 11, 2025:** Interest Credit of ₱4,633.84 at BDO Makati.
+*   **March 12, 2025:** Interest Credit of ₱8,400.71 at BDO QC.
+*   **March 12, 2025:** ₱8,952.13 at BDO Cebu for a Mobile Banking Transfer 4273856102.
+*   **March 12, 2025:** Check Deposit of ₱6,374.77 at BDO Online.
+*   **March 12, 2025:** ₱386.38 at BDO Taguig for a Service Charge.
+*   **March 12, 2025:** ₱2,448.34 at BDO Makati for a Mobile Banking Transfer 7751356568.
+*   **March 13, 2025:** Interest Credit of ₱21,442.07 at BDO QC.
+*   **March 14, 2025:** ₱4,635.76 at BDO Taguig for Bills Payment.
+*   **March 14, 2025:** Received ₱1,359.65 from BDO Makati.
+*   **March 15, 2025:** ₱2,075.77 at BDO QC for a Mobile Banking Transfer 9239688178.
+*   **March 15, 2025:** Received ₱23,858.08 from BDO Online.
+*   **March 15, 2025:** Interest Credit of ₱9,255.43 at BDO QC.
+*   **March 16, 2025:** ₱8,976.27 at BDO Makati for a POS Purchase.
+*   **March 16, 2025:** ₱6,905.11 at BDO Makati for a Mobile Banking Transfer 9263135031.
+*   **March 17, 2025:** Check Deposit of ₱24,701.78 at BDO Davao.
+*   **March 18, 2025:** Deposit of ₱8,843.54 (Salary) at BDO Cebu.
+*   **March 18, 2025:** Check Deposit of ₱11,050.09 at BDO QC.
+*   **March 18, 2025:** ₱7,477.20 at BDO Taguig for an ATM Withdrawal.
+*   **March 19, 2025:** Deposit of ₱7,021.54 (Salary) at BDO Online.
+*   **March 19, 2025:** ₱8,674.18 at BDO Davao for a Fund Transfer to 2072355594.
+*   **March 19, 2025:** ₱9,344.14 at BDO Cebu for a Fund Transfer to 8392190335.
+*   **March 21, 2025:** Check Deposit of ₱23,929.79 at BDO Cebu.
+*   **March 22, 2025:** Received ₱9,208.25 from BDO QC.
+*   **March 23, 2025:** ₱6,268.27 at BDO Davao for an ATM Withdrawal.
+*   **March 24, 2025:** Check Deposit of ₱12,594.69 at BDO Taguig.
+*   **March 24, 2025:** Interest Credit of ₱14,971.44 at BDO QC.
+*   **March 25, 2025:** ₱222.37 at BDO Cebu for a Service Charge.
+*   **March 25, 2025:** ₱114.47 at BDO Cebu for an ATM Withdrawal.
+*   **March 26, 2025:** Check Deposit of ₱6,015.72 at BDO Davao.
+*   **March 26, 2025:** ₱2,834.85 at BDO Makati for a Fund Transfer to 7077131430.
+*   **March 26, 2025:** ₱329.45 at BDO Online for Bills Payment.
+*   **March 26, 2025:** ₱6,819.63 at BDO Davao for a Fund Transfer to 7682327733.
+*   **March 27, 2025:** Deposit of ₱9,301.22 (Salary) at BDO QC.
+*   **March 27, 2025:** ₱1,076.22 at BDO Online for a Mobile Banking Transfer 8901585274.
+*   **March 27, 2025:** ₱295.71 at BDO Cebu for a Service Charge.
+*   **March 27, 2025:** ₱3,888.94 at BDO QC for Bills Payment.
+*   **March 28, 2025:** ₱456.68 at BDO Taguig for a Fund Transfer to 3373077218.
+*   **March 28, 2025:** ₱387.26 at BDO Taguig for a Service Charge.
+*   **March 31, 2025:** ₱1,286.18 at BDO Taguig for a POS Purchase.
+*   **April 03, 2025:** Check Deposit of ₱24,366.41 at BDO Online.
+*   **April 03, 2025:** ₱8,105.67 at BDO Makati for Bills Payment.
+*   **April 05, 2025:** Check Deposit of ₱17,083.46 at BDO QC.
+*   **April 06, 2025:** ₱2,309.53 at BDO QC for an ATM Withdrawal.
+*   **April 08, 2025:** Received ₱20,793.06 from BDO QC.
+*   **April 09, 2025:** Check Deposit of ₱7,574.85 at BDO Taguig.
+*   **April 09, 2025:** ₱86.11 at BDO Online for a Service Charge.
+*   **April 09, 2025:** ₱224.72 at BDO Online for a Service Charge.
+*   **April 09, 2025:** ₱6,379.42 at BDO Makati for an ATM Withdrawal.
+*   **April 10, 2025:** ₱8,615.65 at BDO Cebu for a Mobile Banking Transfer 9547119184.
+*   **April 13, 2025:** ₱3,197.93 at BDO Cebu for a POS Purchase.
+*   **April 14, 2025:** Deposit of ₱24,929.32 (Salary) at BDO Makati.
+*   **April 14, 2025:** ₱6,184.79 at BDO Cebu for Bills Payment.
+*   **April 14, 2025:** Interest Credit of ₱14,479.12 at BDO Cebu.
+*   **April 15, 2025:** Interest Credit of ₱2,210.32 at BDO Taguig.
+*   **April 15, 2025:** ₱152.79 at BDO Makati for a Service Charge.
+*   **April 16, 2025:** ₱7,301.28 at BDO Davao for a Mobile Banking Transfer 4031281545.
+*   **April 16, 2025:** Deposit of ₱14,436.40 (Salary) at BDO Cebu.
+*   **April 16, 2025:** ₱5,410.26 at BDO QC for a POS Purchase.
+*   **April 17, 2025:** ₱1,015.39 at BDO Cebu for a Mobile Banking Transfer 1818112342.
+*   **April 18, 2025:** Interest Credit of ₱20,559.97 at BDO Online.
+*   **April 18, 2025:** ₱254.02 at BDO Makati for a Service Charge.
+*   **April 18, 2025:** ₱9,764.44 at BDO QC for a POS Purchase.
+*   **April 18, 2025:** ₱2,638.80 at BDO Davao for a Mobile Banking Transfer 3057629778.
+*   **April 19, 2025:** ₱8,820.38 at BDO Online for Bills Payment.
+*   **April 19, 2025:** ₱424.35 at BDO Davao for a Service Charge.
+*   **April 20, 2025:** Deposit of ₱4,145.01 (Salary) at BDO Cebu.
+*   **April 21, 2025:** ₱1,827.09 at BDO Taguig for a POS Purchase.
+*   **April 21, 2025:** ₱627.24 at BDO Online for an ATM Withdrawal.
+*   **April 21, 2025:** Deposit of ₱16,284.02 (Salary) at BDO Davao.
+*   **April 22, 2025:** ₱4,042.42 at BDO Taguig for Bills Payment.
+*   **April 22, 2025:** Check Deposit of ₱24,521.29 at BDO QC.
+*   **April 23, 2025:** ₱6,540.33 at BDO Online for a Mobile Banking Transfer 6528675352.
+*   **April 23, 2025:** Received ₱20,531.68 from BDO Cebu.
+*   **April 24, 2025:** ₱191.74 at BDO Makati for Bills Payment.
+*   **April 24, 2025:** ₱4,237.06 at BDO QC for an ATM Withdrawal.
+*   **April 26, 2025:** ₱4,369.84 at BDO Cebu for a POS Purchase.
+*   **April 26, 2025:** Check Deposit of ₱16,903.43 at BDO Makati.
+*   **April 26, 2025:** ₱73.15 at BDO Davao for a Service Charge.
+*   **April 28, 2025:** ₱255.75 at BDO Taguig for a Service Charge.
+*   **April 29, 2025:** Deposit of ₱18,324.50 (Salary) at BDO Makati.
+*   **April 30, 2025:** Received ₱21,163.75 from BDO Cebu.
+*   **April 30, 2025:** ₱8,103.76 at BDO QC for a Fund Transfer to 1541964762.
+*   **April 30, 2025:** Check Deposit of ₱7,916.50 at BDO Taguig.
+*   **April 30, 2025:** ₱2,489.42 at BDO Makati for a POS Purchase.
+*   **May 01, 2025:** ₱8,168.56 at BDO Taguig for a Mobile Banking Transfer 8995059760.
+*   **May 01, 2025:** ₱1,083.61 at BDO Cebu for a POS Purchase.
+*   **May 02, 2025:** Check Deposit of ₱16,288.59 at BDO QC.
+*   **May 03, 2025:** Check Deposit of ₱14,603.27 at BDO Cebu.
+*   **May 03, 2025:** ₱9,237.55 at BDO Davao for a Fund Transfer to 1288335378.
+*   **May 05, 2025:** ₱5,625.06 at BDO Cebu for a POS Purchase.
+*   **May 06, 2025:** Received ₱21,298.43 from BDO Makati.
+*   **May 06, 2025:** ₱8,050.84 at BDO Taguig for an ATM Withdrawal.
+*   **May 06, 2025:** Deposit of ₱18,418.30 (Salary) at BDO Makati.
+*   **May 06, 2025:** Deposit of ₱15,675.32 (Salary) at BDO QC.
+*   **May 07, 2025:** ₱162.54 at BDO Davao for a Service Charge.
+*   **May 08, 2025:** ₱9,986.01 at BDO Makati for an ATM Withdrawal.
+*   **May 08, 2025:** ₱7,577.13 at BDO Taguig for a POS Purchase.
+*   **May 08, 2025:** Deposit of ₱14,110.83 (Salary) at BDO Makati.
+*   **May 08, 2025:** Received ₱16,373.00 from BDO QC.
+*   **May 08, 2025:** Deposit of ₱16,783.61 (Salary) at BDO Davao.
+*   **May 08, 2025:** ₱3,152.25 at BDO Online for a POS Purchase.
+*   **May 10, 2025:** ₱8,716.93 at BDO Davao for Bills Payment.
+*   **May 10, 2025:** Interest Credit of ₱5,765.83 at BDO Taguig.
+*   **May 10, 2025:** Check Deposit of ₱2,738.02 at BDO Online.
+*   **May 11, 2025:** ₱5,847.84 at BDO QC for Bills Payment.
+*   **May 11, 2025:** ₱421.22 at BDO Taguig for a Service Charge.
+*   **May 11, 2025:** Deposit of ₱8,764.23 (Salary) at BDO Online.
+*   **May 11, 2025:** ₱2,920.79 at BDO Taguig for a Mobile Banking Transfer 2928130926.
+*   **May 12, 2025:** Received ₱17,039.06 from BDO Makati.
+*   **May 13, 2025:** ₱7,002.25 at BDO Online for a POS Purchase.
+*   **May 13, 2025:** ₱2,767.26 at BDO Cebu for a Mobile Banking Transfer 3772636814.
+*   **May 13, 2025:** Interest Credit of ₱16,906.92 at BDO Taguig.
+*   **May 14, 2025:** Interest Credit of ₱2,019.04 at BDO Davao.
+*   **May 15, 2025:** Deposit of ₱21,109.85 (Salary) at BDO Online.
+*   **May 15, 2025:** Deposit of ₱14,891.36 (Salary) at BDO Cebu.
+*   **May 15, 2025:** ₱53.64 at BDO Cebu for a Service Charge.
+
+Is there anything specific you'd like to focus on within these transactions?
+2025-06-14 11:01:22,863 - __main__ - INFO - Application started or reloaded.
+2025-06-14 11:01:22,878 - __main__ - INFO - User Query: how about my other transactions in January after Sinulog
+2025-06-14 11:01:30,111 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:01:30,112 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Withdrawals, Deposits FROM bank_transactions WHERE Date >= '2025-01-20' AND Date < '2025-02-01' ORDER BY Date ASC;
+2025-06-14 11:01:30,114 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2025-01-20 00:00:00', 'POS Purchase', 'BDO Cebu', 3634.04, None), ('2025-01-21 00:00:00', 'Fund Transfer to 1172893522', 'BDO QC', 6064.38, None), ('2025-01-22 00:00:00', 'Received from', 'BDO QC', None, 546.11), ('2025-01-22 00:00:00', 'Fund Transfer to 2194673401', 'BDO Online', 5237.74, None), ('2025-01-22 00:00:00', 'POS Purchase', 'BDO QC', 6148.45, None), ('2025-01-22 00:00:00', 'ATM Withdrawal', 'BDO Davao', 4469.53, None), ('2025-01-23 00:00:00', 'Mobile Banking Transfer 4890628295', 'BDO Online', 6191.95, None), ('2025-01-24 00:00:00', 'Bills Payment', 'BDO Makati', 1411.82, None), ('2025-01-25 00:00:00', 'Deposit: Salary', 'BDO QC', None, 15400.55), ('2025-01-26 00:00:00', 'POS Purchase', 'BDO Makati', 8073.76, None), ('2025-01-26 00:00:00', 'Bills Payment', 'BDO Cebu', 3348.41, None), ('2025-01-27 00:00:00', 'Interest Credit', 'BDO Online', None, 15490.9), ('2025-01-28 00:00:00', 'Deposit: Salary', 'BDO Online', None, 12938.78), ('2025-01-28 00:00:00', 'Fund Transfer to 4728940550', 'BDO Online', 5078.35, None), ('2025-01-29 00:00:00', 'Fund Transfer to 8325785916', 'BDO Davao', 9800.0, None), ('2025-01-29 00:00:00', 'Interest Credit', 'BDO Cebu', None, 16313.14), ('2025-01-29 00:00:00', 'ATM Withdrawal', 'BDO Cebu', 8090.37, None), ('2025-01-30 00:00:00', 'Check Deposit', 'BDO QC', None, 7613.93), ('2025-01-30 00:00:00', 'Interest Credit', 'BDO Cebu', None, 19971.57), ('2025-01-30 00:00:00', 'Bills Payment', 'BDO Makati', 8567.65, None)]
+2025-06-14 11:01:35,810 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:01:35,814 - __main__ - INFO - Final Assistant Response (NL): Here's a complete list of your transactions from January 20 to January 31, 2025:
+
+*   **January 20, 2025:** ₱3,634.04 at BDO Cebu for a POS Purchase.
+*   **January 21, 2025:** ₱6,064.38 at BDO QC for a Fund Transfer to 1172893522.
+*   **January 22, 2025:** Received ₱546.11 from BDO QC.
+*   **January 22, 2025:** ₱5,237.74 at BDO Online for a Fund Transfer to 2194673401.
+*   **January 22, 2025:** ₱6,148.45 at BDO QC for a POS Purchase.
+*   **January 22, 2025:** ₱4,469.53 at BDO Davao for an ATM Withdrawal.
+*   **January 23, 2025:** ₱6,191.95 at BDO Online for a Mobile Banking Transfer 4890628295.
+*   **January 24, 2025:** ₱1,411.82 at BDO Makati for Bills Payment.
+*   **January 25, 2025:** Deposit of ₱15,400.55 (Salary) at BDO QC.
+*   **January 26, 2025:** ₱8,073.76 at BDO Makati for a POS Purchase.
+*   **January 26, 2025:** ₱3,348.41 at BDO Cebu for Bills Payment.
+*   **January 27, 2025:** Interest Credit of ₱15,490.90 at BDO Online.
+*   **January 28, 2025:** Deposit of ₱12,938.78 (Salary) at BDO Online.
+*   **January 28, 2025:** ₱5,078.35 at BDO Online for a Fund Transfer to 4728940550.
+*   **January 29, 2025:** ₱9,800.00 at BDO Davao for a Fund Transfer to 8325785916.
+*   **January 29, 2025:** Interest Credit of ₱16,313.14 at BDO Cebu.
+*   **January 29, 2025:** ₱8,090.37 at BDO Cebu for an ATM Withdrawal.
+*   **January 30, 2025:** Check Deposit of ₱7,613.93 at BDO QC.
+*   **January 30, 2025:** Interest Credit of ₱19,971.57 at BDO Cebu.
+*   **January 30, 2025:** ₱8,567.65 at BDO Makati for Bills Payment.
+
+Is there anything specific you'd like to focus on within these transactions?
+2025-06-14 11:01:47,116 - __main__ - INFO - Application started or reloaded.
+2025-06-14 11:01:47,121 - __main__ - INFO - Initialized new chat session (messages in session_state).
+2025-06-14 11:02:11,617 - __main__ - INFO - Application started or reloaded.
+2025-06-14 11:02:11,625 - __main__ - INFO - User Query: i went to Cebu last January after Sinulog, but i can't remember what i spent there, can you help me pick it up
+2025-06-14 11:02:14,365 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:02:14,366 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Withdrawals FROM bank_transactions WHERE "Branch / Source" LIKE '%Cebu%' AND Date BETWEEN '2025-01-20' AND '2025-01-31' ORDER BY Date ASC;
+2025-06-14 11:02:14,367 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2025-01-20 00:00:00', 'POS Purchase', 'BDO Cebu', 3634.04), ('2025-01-26 00:00:00', 'Bills Payment', 'BDO Cebu', 3348.41), ('2025-01-29 00:00:00', 'Interest Credit', 'BDO Cebu', None), ('2025-01-29 00:00:00', 'ATM Withdrawal', 'BDO Cebu', 8090.37), ('2025-01-30 00:00:00', 'Interest Credit', 'BDO Cebu', None)]
+2025-06-14 11:02:16,329 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:02:16,331 - __main__ - INFO - Final Assistant Response (NL): Okay, I've pulled up your transactions in Cebu from January 20th to 31st. Here's what I found:
+
+*   **January 20, 2025:** ₱3,634.04 via POS Purchase at BDO Cebu
+*   **January 26, 2025:** ₱3,348.41 for Bills Payment at BDO Cebu
+*   **January 29, 2025:** ₱8,090.37 ATM Withdrawal at BDO Cebu
+
+I did find some interest credits as well, but these don't count as expenses. Does this help jog your memory? Let me know if there's anything else I can assist you with!
+2025-06-14 11:02:41,588 - __main__ - INFO - Application started or reloaded.
+2025-06-14 11:02:41,596 - __main__ - INFO - User Query: you said interest credits, what are those, why don't they count as expenses?
+2025-06-14 11:02:44,431 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:02:44,433 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Deposits FROM bank_transactions WHERE LOWER("Transaction Details") LIKE '%interest credit%' ORDER BY Date ASC;
+2025-06-14 11:02:44,434 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2024-01-09 00:00:00', 'Interest Credit', 'BDO Makati', 443.46), ('2024-01-19 00:00:00', 'Interest Credit', 'BDO Davao', 24869.37), ('2024-01-24 00:00:00', 'Interest Credit', 'BDO QC', 18557.18), ('2024-01-27 00:00:00', 'Interest Credit', 'BDO Online', 4345.75), ('2024-01-30 00:00:00', 'Interest Credit', 'BDO Davao', 13600.66), ('2024-02-05 00:00:00', 'Interest Credit', 'BDO Makati', 16912.79), ('2024-02-07 00:00:00', 'Interest Credit', 'BDO Davao', 17192.63), ('2024-02-11 00:00:00', 'Interest Credit', 'BDO Makati', 22246.63), ('2024-02-13 00:00:00', 'Interest Credit', 'BDO Makati', 12685.15), ('2024-02-25 00:00:00', 'Interest Credit', 'BDO Makati', 23229.29), ('2024-03-07 00:00:00', 'Interest Credit', 'BDO Davao', 23456.25), ('2024-03-16 00:00:00', 'Interest Credit', 'BDO Taguig', 14608.66), ('2024-03-27 00:00:00', 'Interest Credit', 'BDO QC', 12290.47), ('2024-03-29 00:00:00', 'Interest Credit', 'BDO QC', 19029.36), ('2024-03-30 00:00:00', 'Interest Credit', 'BDO Taguig', 7593.65), ('2024-04-13 00:00:00', 'Interest Credit', 'BDO Taguig', 3831.32), ('2024-04-15 00:00:00', 'Interest Credit', 'BDO Online', 2364.45), ('2024-04-18 00:00:00', 'Interest Credit', 'BDO Davao', 7935.48), ('2024-04-18 00:00:00', 'Interest Credit', 'BDO Makati', 1359.4), ('2024-04-19 00:00:00', 'Interest Credit', 'BDO Cebu', 17380.12), ('2024-05-02 00:00:00', 'Interest Credit', 'BDO Online', 5915.7), ('2024-05-03 00:00:00', 'Interest Credit', 'BDO Online', 16958.17), ('2024-05-14 00:00:00', 'Interest Credit', 'BDO Online', 20578.19), ('2024-05-27 00:00:00', 'Interest Credit', 'BDO Cebu', 8855.99), ('2024-06-03 00:00:00', 'Interest Credit', 'BDO Makati', 19926.06), ('2024-06-05 00:00:00', 'Interest Credit', 'BDO Taguig', 1599.73), ('2024-06-11 00:00:00', 'Interest Credit', 'BDO QC', 16027.2), ('2024-06-16 00:00:00', 'Interest Credit', 'BDO Makati', 21735.8), ('2024-06-19 00:00:00', 'Interest Credit', 'BDO Online', 20121.5), ('2024-06-21 00:00:00', 'Interest Credit', 'BDO Makati', 20648.38), ('2024-06-22 00:00:00', 'Interest Credit', 'BDO Makati', 19751.75), ('2024-07-14 00:00:00', 'Interest Credit', 'BDO Online', 13274.95), ('2024-07-15 00:00:00', 'Interest Credit', 'BDO Online', 6281.93), ('2024-07-19 00:00:00', 'Interest Credit', 'BDO Makati', 8763.32), ('2024-07-19 00:00:00', 'Interest Credit', 'BDO Davao', 19104.28), ('2024-07-29 00:00:00', 'Interest Credit', 'BDO Davao', 19833.73), ('2024-07-31 00:00:00', 'Interest Credit', 'BDO QC', 17986.81), ('2024-08-01 00:00:00', 'Interest Credit', 'BDO Cebu', 19939.19), ('2024-08-02 00:00:00', 'Interest Credit', 'BDO QC', 14412.67), ('2024-08-02 00:00:00', 'Interest Credit', 'BDO Makati', 6092.59), ('2024-08-07 00:00:00', 'Interest Credit', 'BDO Online', 9113.71), ('2024-08-08 00:00:00', 'Interest Credit', 'BDO Taguig', 16402.17), ('2024-08-08 00:00:00', 'Interest Credit', 'BDO QC', 13682.31), ('2024-08-18 00:00:00', 'Interest Credit', 'BDO Online', 7352.36), ('2024-08-18 00:00:00', 'Interest Credit', 'BDO Davao', 4787.16), ('2024-08-21 00:00:00', 'Interest Credit', 'BDO Makati', 14014.05), ('2024-09-05 00:00:00', 'Interest Credit', 'BDO Online', 10413.18), ('2024-09-05 00:00:00', 'Interest Credit', 'BDO Taguig', 11878.86), ('2024-09-11 00:00:00', 'Interest Credit', 'BDO QC', 5881.49), ('2024-09-14 00:00:00', 'Interest Credit', 'BDO Cebu', 4258.8), ('2024-09-15 00:00:00', 'Interest Credit', 'BDO Makati', 14075.0), ('2024-09-28 00:00:00', 'Interest Credit', 'BDO Makati', 15296.95), ('2024-10-06 00:00:00', 'Interest Credit', 'BDO QC', 12256.91), ('2024-10-07 00:00:00', 'Interest Credit', 'BDO Taguig', 10639.04), ('2024-10-10 00:00:00', 'Interest Credit', 'BDO Taguig', 18057.37), ('2024-10-14 00:00:00', 'Interest Credit', 'BDO Cebu', 5658.61), ('2024-10-17 00:00:00', 'Interest Credit', 'BDO Makati', 23218.53), ('2024-10-21 00:00:00', 'Interest Credit', 'BDO Makati', 24989.35), ('2024-10-30 00:00:00', 'Interest Credit', 'BDO Davao', 774.84), ('2024-11-10 00:00:00', 'Interest Credit', 'BDO Online', 24226.12), ('2024-11-12 00:00:00', 'Interest Credit', 'BDO Online', 16516.18), ('2024-11-18 00:00:00', 'Interest Credit', 'BDO Online', 3779.62), ('2024-12-03 00:00:00', 'Interest Credit', 'BDO Davao', 22559.82), ('2024-12-05 00:00:00', 'Interest Credit', 'BDO Cebu', 11884.19), ('2024-12-29 00:00:00', 'Interest Credit', 'BDO Davao', 10761.36), ('2025-01-05 00:00:00', 'Interest Credit', 'BDO Taguig', 14960.09), ('2025-01-12 00:00:00', 'Interest Credit', 'BDO Davao', 8830.71), ('2025-01-13 00:00:00', 'Interest Credit', 'BDO QC', 11651.77), ('2025-01-14 00:00:00', 'Interest Credit', 'BDO QC', 6137.21), ('2025-01-27 00:00:00', 'Interest Credit', 'BDO Online', 15490.9), ('2025-01-29 00:00:00', 'Interest Credit', 'BDO Cebu', 16313.14), ('2025-01-30 00:00:00', 'Interest Credit', 'BDO Cebu', 19971.57), ('2025-02-01 00:00:00', 'Interest Credit', 'BDO Taguig', 2215.43), ('2025-02-07 00:00:00', 'Interest Credit', 'BDO Makati', 7004.14), ('2025-02-07 00:00:00', 'Interest Credit', 'BDO Davao', 20117.25), ('2025-02-14 00:00:00', 'Interest Credit', 'BDO Online', 16547.21), ('2025-02-25 00:00:00', 'Interest Credit', 'BDO Online', 5071.9), ('2025-02-26 00:00:00', 'Interest Credit', 'BDO Cebu', 8125.38), ('2025-02-28 00:00:00', 'Interest Credit', 'BDO Cebu', 14476.07), ('2025-03-05 00:00:00', 'Interest Credit', 'BDO Online', 9198.77), ('2025-03-11 00:00:00', 'Interest Credit', 'BDO Makati', 4633.84), ('2025-03-12 00:00:00', 'Interest Credit', 'BDO QC', 8400.71), ('2025-03-13 00:00:00', 'Interest Credit', 'BDO QC', 21442.07), ('2025-03-15 00:00:00', 'Interest Credit', 'BDO QC', 9255.43), ('2025-03-24 00:00:00', 'Interest Credit', 'BDO QC', 14971.44), ('2025-04-14 00:00:00', 'Interest Credit', 'BDO Cebu', 14479.12), ('2025-04-15 00:00:00', 'Interest Credit', 'BDO Taguig', 2210.32), ('2025-04-18 00:00:00', 'Interest Credit', 'BDO Online', 20559.97), ('2025-05-10 00:00:00', 'Interest Credit', 'BDO Taguig', 5765.83), ('2025-05-13 00:00:00', 'Interest Credit', 'BDO Taguig', 16906.92), ('2025-05-14 00:00:00', 'Interest Credit', 'BDO Davao', 2019.04)]
+2025-06-14 11:02:58,438 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:02:58,441 - __main__ - INFO - Final Assistant Response (NL): Interest credits are essentially small deposits the bank makes into your account as a reward for keeping your money with us. They're calculated based on your account balance. Here are some transactions with interest credits:
+
+*   **January 9, 2024:** ₱443.46 at BDO Makati
+*   **January 19, 2024:** ₱24,869.37 at BDO Davao
+*   **January 24, 2024:** ₱18,557.18 at BDO QC
+*   **January 27, 2024:** ₱4,345.75 at BDO Online
+*   **January 30, 2024:** ₱13,600.66 at BDO Davao
+*   **February 5, 2024:** ₱16,912.79 at BDO Makati
+*   **February 7, 2024:** ₱17,192.63 at BDO Davao
+*   **February 11, 2024:** ₱22,246.63 at BDO Makati
+*   **February 13, 2024:** ₱12,685.15 at BDO Makati
+*   **February 25, 2024:** ₱23,229.29 at BDO Makati
+*   **March 7, 2024:** ₱23,456.25 at BDO Davao
+*   **March 16, 2024:** ₱14,608.66 at BDO Taguig
+*   **March 27, 2024:** ₱12,290.47 at BDO QC
+*   **March 29, 2024:** ₱19,029.36 at BDO QC
+*   **March 30, 2024:** ₱7,593.65 at BDO Taguig
+*   **April 13, 2024:** ₱3,831.32 at BDO Taguig
+*   **April 15, 2024:** ₱2,364.45 at BDO Online
+*   **April 18, 2024:** ₱7,935.48 at BDO Davao
+*   **April 18, 2024:** ₱1,359.40 at BDO Makati
+*   **April 19, 2024:** ₱17,380.12 at BDO Cebu
+*   **May 2, 2024:** ₱5,915.70 at BDO Online
+*   **May 3, 2024:** ₱16,958.17 at BDO Online
+*   **May 14, 2024:** ₱20,578.19 at BDO Online
+*   **May 27, 2024:** ₱8,855.99 at BDO Cebu
+*   **June 3, 2024:** ₱19,926.06 at BDO Makati
+*   **June 5, 2024:** ₱1,599.73 at BDO Taguig
+*   **June 11, 2024:** ₱16,027.20 at BDO QC
+*   **June 16, 2024:** ₱21,735.80 at BDO Makati
+*   **June 19, 2024:** ₱20,121.50 at BDO Online
+*   **June 21, 2024:** ₱20,648.38 at BDO Makati
+*   **June 22, 2024:** ₱19,751.75 at BDO Makati
+*   **July 14, 2024:** ₱13,274.95 at BDO Online
+*   **July 15, 2024:** ₱6,281.93 at BDO Online
+*   **July 19, 2024:** ₱8,763.32 at BDO Makati
+*   **July 19, 2024:** ₱19,104.28 at BDO Davao
+*   **July 29, 2024:** ₱19,833.73 at BDO Davao
+*   **July 31, 2024:** ₱17,986.81 at BDO QC
+*   **August 1, 2024:** ₱19,939.19 at BDO Cebu
+*   **August 2, 2024:** ₱14,412.67 at BDO QC
+*   **August 2, 2024:** ₱6,092.59 at BDO Makati
+*   **August 7, 2024:** ₱9,113.71 at BDO Online
+*   **August 8, 2024:** ₱16,402.17 at BDO Taguig
+*   **August 8, 2024:** ₱13,682.31 at BDO QC
+*   **August 18, 2024:** ₱7,352.36 at BDO Online
+*   **August 18, 2024:** ₱4,787.16 at BDO Davao
+*   **August 21, 2024:** ₱14,014.05 at BDO Makati
+*   **September 5, 2024:** ₱10,413.18 at BDO Online
+*   **September 5, 2024:** ₱11,878.86 at BDO Taguig
+*   **September 11, 2024:** ₱5,881.49 at BDO QC
+*   **September 14, 2024:** ₱4,258.80 at BDO Cebu
+*   **September 15, 2024:** ₱14,075.00 at BDO Makati
+*   **September 28, 2024:** ₱15,296.95 at BDO Makati
+*   **October 6, 2024:** ₱12,256.91 at BDO QC
+*   **October 7, 2024:** ₱10,639.04 at BDO Taguig
+*   **October 10, 2024:** ₱18,057.37 at BDO Taguig
+*   **October 14, 2024:** ₱5,658.61 at BDO Cebu
+*   **October 17, 2024:** ₱23,218.53 at BDO Makati
+*   **October 21, 2024:** ₱24,989.35 at BDO Makati
+*   **October 30, 2024:** ₱774.84 at BDO Davao
+*   **November 10, 2024:** ₱24,226.12 at BDO Online
+*   **November 12, 2024:** ₱16,516.18 at BDO Online
+*   **November 18, 2024:** ₱3,779.62 at BDO Online
+*   **December 3, 2024:** ₱22,559.82 at BDO Davao
+*   **December 5, 2024:** ₱11,884.19 at BDO Cebu
+*   **December 29, 2024:** ₱10,761.36 at BDO Davao
+*   **January 5, 2025:** ₱14,960.09 at BDO Taguig
+*   **January 12, 2025:** ₱8,830.71 at BDO Davao
+*   **January 13, 2025:** ₱11,651.77 at BDO QC
+*   **January 14, 2025:** ₱6,137.21 at BDO QC
+*   **January 27, 2025:** ₱15,490.90 at BDO Online
+*   **January 29, 2025:** ₱16,313.14 at BDO Cebu
+*   **January 30, 2025:** ₱19,971.57 at BDO Cebu
+*   **February 1, 2025:** ₱2,215.43 at BDO Taguig
+*   **February 7, 2025:** ₱7,004.14 at BDO Makati
+*   **February 7, 2025:** ₱20,117.25 at BDO Davao
+*   **February 14, 2025:** ₱16,547.21 at BDO Online
+*   **February 25, 2025:** ₱5,071.90 at BDO Online
+*   **February 26, 2025:** ₱8,125.38 at BDO Cebu
+*   **February 28, 2025:** ₱14,476.07 at BDO Cebu
+*   **March 5, 2025:** ₱9,198.77 at BDO Online
+*   **March 11, 2025:** ₱4,633.84 at BDO Makati
+*   **March 12, 2025:** ₱8,400.71 at BDO QC
+*   **March 13, 2025:** ₱21,442.07 at BDO QC
+*   **March 15, 2025:** ₱9,255.43 at BDO QC
+*   **March 24, 2025:** ₱14,971.44 at BDO QC
+*   **April 14, 2025:** ₱14,479.12 at BDO Cebu
+*   **April 15, 2025:** ₱2,210.32 at BDO Taguig
+*   **April 18, 2025:** ₱20,559.97 at BDO Online
+*   **May 10, 2025:** ₱5,765.83 at BDO Taguig
+*   **May 13, 2025:** ₱16,906.92 at BDO Taguig
+*   **May 14, 2025:** ₱2,019.04 at BDO Davao
+
+Because they're basically free money, they're not counted as expenses. Does that make sense? Let me know if you'd like to see any other types of transactions!
+2025-06-14 11:03:35,356 - __main__ - INFO - Application started or reloaded.
+2025-06-14 11:03:35,366 - __main__ - INFO - User Query: oh, really, how much is the percentage of interest
+2025-06-14 11:03:38,158 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:03:38,159 - __main__ - INFO - Generated SQL Query: SELECT Date, "Transaction Details", "Branch / Source", Deposits FROM bank_transactions WHERE LOWER("Transaction Details") LIKE '%interest credit%' ORDER BY Date ASC;
+2025-06-14 11:03:38,160 - __main__ - INFO - SQL Query Executed Successfully. Results: [('2024-01-09 00:00:00', 'Interest Credit', 'BDO Makati', 443.46), ('2024-01-19 00:00:00', 'Interest Credit', 'BDO Davao', 24869.37), ('2024-01-24 00:00:00', 'Interest Credit', 'BDO QC', 18557.18), ('2024-01-27 00:00:00', 'Interest Credit', 'BDO Online', 4345.75), ('2024-01-30 00:00:00', 'Interest Credit', 'BDO Davao', 13600.66), ('2024-02-05 00:00:00', 'Interest Credit', 'BDO Makati', 16912.79), ('2024-02-07 00:00:00', 'Interest Credit', 'BDO Davao', 17192.63), ('2024-02-11 00:00:00', 'Interest Credit', 'BDO Makati', 22246.63), ('2024-02-13 00:00:00', 'Interest Credit', 'BDO Makati', 12685.15), ('2024-02-25 00:00:00', 'Interest Credit', 'BDO Makati', 23229.29), ('2024-03-07 00:00:00', 'Interest Credit', 'BDO Davao', 23456.25), ('2024-03-16 00:00:00', 'Interest Credit', 'BDO Taguig', 14608.66), ('2024-03-27 00:00:00', 'Interest Credit', 'BDO QC', 12290.47), ('2024-03-29 00:00:00', 'Interest Credit', 'BDO QC', 19029.36), ('2024-03-30 00:00:00', 'Interest Credit', 'BDO Taguig', 7593.65), ('2024-04-13 00:00:00', 'Interest Credit', 'BDO Taguig', 3831.32), ('2024-04-15 00:00:00', 'Interest Credit', 'BDO Online', 2364.45), ('2024-04-18 00:00:00', 'Interest Credit', 'BDO Davao', 7935.48), ('2024-04-18 00:00:00', 'Interest Credit', 'BDO Makati', 1359.4), ('2024-04-19 00:00:00', 'Interest Credit', 'BDO Cebu', 17380.12), ('2024-05-02 00:00:00', 'Interest Credit', 'BDO Online', 5915.7), ('2024-05-03 00:00:00', 'Interest Credit', 'BDO Online', 16958.17), ('2024-05-14 00:00:00', 'Interest Credit', 'BDO Online', 20578.19), ('2024-05-27 00:00:00', 'Interest Credit', 'BDO Cebu', 8855.99), ('2024-06-03 00:00:00', 'Interest Credit', 'BDO Makati', 19926.06), ('2024-06-05 00:00:00', 'Interest Credit', 'BDO Taguig', 1599.73), ('2024-06-11 00:00:00', 'Interest Credit', 'BDO QC', 16027.2), ('2024-06-16 00:00:00', 'Interest Credit', 'BDO Makati', 21735.8), ('2024-06-19 00:00:00', 'Interest Credit', 'BDO Online', 20121.5), ('2024-06-21 00:00:00', 'Interest Credit', 'BDO Makati', 20648.38), ('2024-06-22 00:00:00', 'Interest Credit', 'BDO Makati', 19751.75), ('2024-07-14 00:00:00', 'Interest Credit', 'BDO Online', 13274.95), ('2024-07-15 00:00:00', 'Interest Credit', 'BDO Online', 6281.93), ('2024-07-19 00:00:00', 'Interest Credit', 'BDO Makati', 8763.32), ('2024-07-19 00:00:00', 'Interest Credit', 'BDO Davao', 19104.28), ('2024-07-29 00:00:00', 'Interest Credit', 'BDO Davao', 19833.73), ('2024-07-31 00:00:00', 'Interest Credit', 'BDO QC', 17986.81), ('2024-08-01 00:00:00', 'Interest Credit', 'BDO Cebu', 19939.19), ('2024-08-02 00:00:00', 'Interest Credit', 'BDO QC', 14412.67), ('2024-08-02 00:00:00', 'Interest Credit', 'BDO Makati', 6092.59), ('2024-08-07 00:00:00', 'Interest Credit', 'BDO Online', 9113.71), ('2024-08-08 00:00:00', 'Interest Credit', 'BDO Taguig', 16402.17), ('2024-08-08 00:00:00', 'Interest Credit', 'BDO QC', 13682.31), ('2024-08-18 00:00:00', 'Interest Credit', 'BDO Online', 7352.36), ('2024-08-18 00:00:00', 'Interest Credit', 'BDO Davao', 4787.16), ('2024-08-21 00:00:00', 'Interest Credit', 'BDO Makati', 14014.05), ('2024-09-05 00:00:00', 'Interest Credit', 'BDO Online', 10413.18), ('2024-09-05 00:00:00', 'Interest Credit', 'BDO Taguig', 11878.86), ('2024-09-11 00:00:00', 'Interest Credit', 'BDO QC', 5881.49), ('2024-09-14 00:00:00', 'Interest Credit', 'BDO Cebu', 4258.8), ('2024-09-15 00:00:00', 'Interest Credit', 'BDO Makati', 14075.0), ('2024-09-28 00:00:00', 'Interest Credit', 'BDO Makati', 15296.95), ('2024-10-06 00:00:00', 'Interest Credit', 'BDO QC', 12256.91), ('2024-10-07 00:00:00', 'Interest Credit', 'BDO Taguig', 10639.04), ('2024-10-10 00:00:00', 'Interest Credit', 'BDO Taguig', 18057.37), ('2024-10-14 00:00:00', 'Interest Credit', 'BDO Cebu', 5658.61), ('2024-10-17 00:00:00', 'Interest Credit', 'BDO Makati', 23218.53), ('2024-10-21 00:00:00', 'Interest Credit', 'BDO Makati', 24989.35), ('2024-10-30 00:00:00', 'Interest Credit', 'BDO Davao', 774.84), ('2024-11-10 00:00:00', 'Interest Credit', 'BDO Online', 24226.12), ('2024-11-12 00:00:00', 'Interest Credit', 'BDO Online', 16516.18), ('2024-11-18 00:00:00', 'Interest Credit', 'BDO Online', 3779.62), ('2024-12-03 00:00:00', 'Interest Credit', 'BDO Davao', 22559.82), ('2024-12-05 00:00:00', 'Interest Credit', 'BDO Cebu', 11884.19), ('2024-12-29 00:00:00', 'Interest Credit', 'BDO Davao', 10761.36), ('2025-01-05 00:00:00', 'Interest Credit', 'BDO Taguig', 14960.09), ('2025-01-12 00:00:00', 'Interest Credit', 'BDO Davao', 8830.71), ('2025-01-13 00:00:00', 'Interest Credit', 'BDO QC', 11651.77), ('2025-01-14 00:00:00', 'Interest Credit', 'BDO QC', 6137.21), ('2025-01-27 00:00:00', 'Interest Credit', 'BDO Online', 15490.9), ('2025-01-29 00:00:00', 'Interest Credit', 'BDO Cebu', 16313.14), ('2025-01-30 00:00:00', 'Interest Credit', 'BDO Cebu', 19971.57), ('2025-02-01 00:00:00', 'Interest Credit', 'BDO Taguig', 2215.43), ('2025-02-07 00:00:00', 'Interest Credit', 'BDO Makati', 7004.14), ('2025-02-07 00:00:00', 'Interest Credit', 'BDO Davao', 20117.25), ('2025-02-14 00:00:00', 'Interest Credit', 'BDO Online', 16547.21), ('2025-02-25 00:00:00', 'Interest Credit', 'BDO Online', 5071.9), ('2025-02-26 00:00:00', 'Interest Credit', 'BDO Cebu', 8125.38), ('2025-02-28 00:00:00', 'Interest Credit', 'BDO Cebu', 14476.07), ('2025-03-05 00:00:00', 'Interest Credit', 'BDO Online', 9198.77), ('2025-03-11 00:00:00', 'Interest Credit', 'BDO Makati', 4633.84), ('2025-03-12 00:00:00', 'Interest Credit', 'BDO QC', 8400.71), ('2025-03-13 00:00:00', 'Interest Credit', 'BDO QC', 21442.07), ('2025-03-15 00:00:00', 'Interest Credit', 'BDO QC', 9255.43), ('2025-03-24 00:00:00', 'Interest Credit', 'BDO QC', 14971.44), ('2025-04-14 00:00:00', 'Interest Credit', 'BDO Cebu', 14479.12), ('2025-04-15 00:00:00', 'Interest Credit', 'BDO Taguig', 2210.32), ('2025-04-18 00:00:00', 'Interest Credit', 'BDO Online', 20559.97), ('2025-05-10 00:00:00', 'Interest Credit', 'BDO Taguig', 5765.83), ('2025-05-13 00:00:00', 'Interest Credit', 'BDO Taguig', 16906.92), ('2025-05-14 00:00:00', 'Interest Credit', 'BDO Davao', 2019.04)]
+2025-06-14 11:03:52,819 - __main__ - INFO - Successfully parsed Gemini response into dictionary.
+2025-06-14 11:03:52,821 - __main__ - INFO - Final Assistant Response (NL): While I don't have the exact interest *rate* that was applied, I can show you the dates and amounts of your interest credits. Here's a list of all your interest credit transactions:
+
+*   **January 9, 2024:** ₱443.46 at BDO Makati
+*   **January 19, 2024:** ₱24,869.37 at BDO Davao
+*   **January 24, 2024:** ₱18,557.18 at BDO QC
+*   **January 27, 2024:** ₱4,345.75 at BDO Online
+*   **January 30, 2024:** ₱13,600.66 at BDO Davao
+*   **February 5, 2024:** ₱16,912.79 at BDO Makati
+*   **February 7, 2024:** ₱17,192.63 at BDO Davao
+*   **February 11, 2024:** ₱22,246.63 at BDO Makati
+*   **February 13, 2024:** ₱12,685.15 at BDO Makati
+*   **February 25, 2024:** ₱23,229.29 at BDO Makati
+*   **March 7, 2024:** ₱23,456.25 at BDO Davao
+*   **March 16, 2024:** ₱14,608.66 at BDO Taguig
+*   **March 27, 2024:** ₱12,290.47 at BDO QC
+*   **March 29, 2024:** ₱19,029.36 at BDO QC
+*   **March 30, 2024:** ₱7,593.65 at BDO Taguig
+*   **April 13, 2024:** ₱3,831.32 at BDO Taguig
+*   **April 15, 2024:** ₱2,364.45 at BDO Online
+*   **April 18, 2024:** ₱7,935.48 at BDO Davao
+*   **April 18, 2024:** ₱1,359.40 at BDO Makati
+*   **April 19, 2024:** ₱17,380.12 at BDO Cebu
+*   **May 2, 2024:** ₱5,915.70 at BDO Online
+*   **May 3, 2024:** ₱16,958.17 at BDO Online
+*   **May 14, 2024:** ₱20,578.19 at BDO Online
+*   **May 27, 2024:** ₱8,855.99 at BDO Cebu
+*   **June 3, 2024:** ₱19,926.06 at BDO Makati
+*   **June 5, 2024:** ₱1,599.73 at BDO Taguig
+*   **June 11, 2024:** ₱16,027.20 at BDO QC
+*   **June 16, 2024:** ₱21,735.80 at BDO Makati
+*   **June 19, 2024:** ₱20,121.50 at BDO Online
+*   **June 21, 2024:** ₱20,648.38 at BDO Makati
+*   **June 22, 2024:** ₱19,751.75 at BDO Makati
+*   **July 14, 2024:** ₱13,274.95 at BDO Online
+*   **July 15, 2024:** ₱6,281.93 at BDO Online
+*   **July 19, 2024:** ₱8,763.32 at BDO Makati
+*   **July 19, 2024:** ₱19,104.28 at BDO Davao
+*   **July 29, 2024:** ₱19,833.73 at BDO Davao
+*   **July 31, 2024:** ₱17,986.81 at BDO QC
+*   **August 1, 2024:** ₱19,939.19 at BDO Cebu
+*   **August 2, 2024:** ₱14,412.67 at BDO QC
+*   **August 2, 2024:** ₱6,092.59 at BDO Makati
+*   **August 7, 2024:** ₱9,113.71 at BDO Online
+*   **August 8, 2024:** ₱16,402.17 at BDO Taguig
+*   **August 8, 2024:** ₱13,682.31 at BDO QC
+*   **August 18, 2024:** ₱7,352.36 at BDO Online
+*   **August 18, 2024:** ₱4,787.16 at BDO Davao
+*   **August 21, 2024:** ₱14,014.05 at BDO Makati
+*   **September 5, 2024:** ₱10,413.18 at BDO Online
+*   **September 5, 2024:** ₱11,878.86 at BDO Taguig
+*   **September 11, 2024:** ₱5,881.49 at BDO QC
+*   **September 14, 2024:** ₱4,258.80 at BDO Cebu
+*   **September 15, 2024:** ₱14,075.00 at BDO Makati
+*   **September 28, 2024:** ₱15,296.95 at BDO Makati
+*   **October 6, 2024:** ₱12,256.91 at BDO QC
+*   **October 7, 2024:** ₱10,639.04 at BDO Taguig
+*   **October 10, 2024:** ₱18,057.37 at BDO Taguig
+*   **October 14, 2024:** ₱5,658.61 at BDO Cebu
+*   **October 17, 2024:** ₱23,218.53 at BDO Makati
+*   **October 21, 2024:** ₱24,989.35 at BDO Makati
+*   **October 30, 2024:** ₱774.84 at BDO Davao
+*   **November 10, 2024:** ₱24,226.12 at BDO Online
+*   **November 12, 2024:** ₱16,516.18 at BDO Online
+*   **November 18, 2024:** ₱3,779.62 at BDO Online
+*   **December 3, 2024:** ₱22,559.82 at BDO Davao
+*   **December 5, 2024:** ₱11,884.19 at BDO Cebu
+*   **December 29, 2024:** ₱10,761.36 at BDO Davao
+*   **January 5, 2025:** ₱14,960.09 at BDO Taguig
+*   **January 12, 2025:** ₱8,830.71 at BDO Davao
+*   **January 13, 2025:** ₱11,651.77 at BDO QC
+*   **January 14, 2025:** ₱6,137.21 at BDO QC
+*   **January 27, 2025:** ₱15,490.90 at BDO Online
+*   **January 29, 2025:** ₱16,313.14 at BDO Cebu
+*   **January 30, 2025:** ₱19,971.57 at BDO Cebu
+*   **February 1, 2025:** ₱2,215.43 at BDO Taguig
+*   **February 7, 2025:** ₱7,004.14 at BDO Makati
+*   **February 7, 2025:** ₱20,117.25 at BDO Davao
+*   **February 14, 2025:** ₱16,547.21 at BDO Online
+*   **February 25, 2025:** ₱5,071.90 at BDO Online
+*   **February 26, 2025:** ₱8,125.38 at BDO Cebu
+*   **February 28, 2025:** ₱14,476.07 at BDO Cebu
+*   **March 5, 2025:** ₱9,198.77 at BDO Online
+*   **March 11, 2025:** ₱4,633.84 at BDO Makati
+*   **March 12, 2025:** ₱8,400.71 at BDO QC
+*   **March 13, 2025:** ₱21,442.07 at BDO QC
+*   **March 15, 2025:** ₱9,255.43 at BDO QC
+*   **March 24, 2025:** ₱14,971.44 at BDO QC
+*   **April 14, 2025:** ₱14,479.12 at BDO Cebu
+*   **April 15, 2025:** ₱2,210.32 at BDO Taguig
+*   **April 18, 2025:** ₱20,559.97 at BDO Online
+*   **May 10, 2025:** ₱5,765.83 at BDO Taguig
+*   **May 13, 2025:** ₱16,906.92 at BDO Taguig
+*   **May 14, 2025:** ₱2,019.04 at BDO Davao
+
+To find out the specific interest rate applied, you might want to check your account terms or contact customer service. Would you like me to help you find their contact information?

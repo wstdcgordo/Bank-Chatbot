@@ -1,0 +1,357 @@
+2025-06-19 16:27:18,778 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 16:27:19,119 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 16:28:45,754 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 16:32:53,427 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 16:33:02,285 - evaluacion - INFO - Starting evaluation process...
+2025-06-19 16:33:02,285 - evaluacion - INFO - Processing Test Case 1/9: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 16:33:09,432 - evaluacion - WARNING - Errors in Test Case 1: ['Ground Truth SQL execution error: no such table: bank_transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 16:33:09,432 - evaluacion - INFO - Processing Test Case 2/9: ID=2 - '¿Cuánto es mi saldo actual?'
+2025-06-19 16:33:13,258 - evaluacion - WARNING - Errors in Test Case 2: ['Ground Truth SQL execution error: no such table: bank_transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 16:33:13,258 - evaluacion - INFO - Processing Test Case 3/9: ID=3 - 'What were my top 3 largest withdrawals?'
+2025-06-19 16:33:18,997 - evaluacion - WARNING - Errors in Test Case 3: ['Bot failed to generate SQL: Error decoding JSON from Gemini: Expecting value: line 1 column 1 (char 0)']
+2025-06-19 16:33:18,997 - evaluacion - INFO - Processing Test Case 4/9: ID=4 - 'How much did I deposit in total for 2024?'
+2025-06-19 16:33:22,873 - evaluacion - WARNING - Errors in Test Case 4: ['Ground Truth SQL execution error: no such table: bank_transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 16:33:22,873 - evaluacion - INFO - Processing Test Case 5/9: ID=5 - 'Did I make any transactions on Christmas Day 2023?'
+2025-06-19 16:33:27,187 - evaluacion - WARNING - Errors in Test Case 5: ['Ground Truth SQL execution error: no such table: bank_transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 16:33:27,187 - evaluacion - INFO - Processing Test Case 6/9: ID=6 - '¿Cuál fue la transacción más grande en un restaurante en 2024?'
+2025-06-19 16:33:32,306 - evaluacion - WARNING - Errors in Test Case 6: ['Ground Truth SQL execution error: no such table: bank_transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 16:33:32,306 - evaluacion - INFO - Processing Test Case 7/9: ID=7 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 16:33:32,531 - evaluacion - WARNING - Errors in Test Case 7: ['Bot failed to generate SQL: An error occurred during Gemini API call: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.0-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 15\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 27\n}\n]']
+2025-06-19 16:33:32,531 - evaluacion - INFO - Processing Test Case 8/9: ID=8 - 'How many coffee shop transactions did I have in February 2024?'
+2025-06-19 16:33:33,431 - evaluacion - WARNING - Errors in Test Case 8: ['Bot failed to generate SQL: An error occurred during Gemini API call: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.0-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 15\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 26\n}\n]']
+2025-06-19 16:33:33,431 - evaluacion - INFO - Processing Test Case 9/9: ID=9 - 'Show me all refunds.'
+2025-06-19 16:33:33,636 - evaluacion - WARNING - Errors in Test Case 9: ['Bot failed to generate SQL: An error occurred during Gemini API call: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.0-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 15\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 26\n}\n]']
+2025-06-19 16:33:33,636 - evaluacion - INFO - Evaluation complete.
+2025-06-19 16:33:33,636 - evaluacion - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 16:33:02 PST+0800",
+  "total_test_cases": 9,
+  "sql_execution_match_count": 0,
+  "failed_sql_generation": 4,
+  "failed_sql_execution": 4,
+  "failed_ground_truth_execution": 9,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 0
+}
+2025-06-19 16:33:33,639 - evaluacion - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_163333.json
+2025-06-19 16:33:33,639 - evaluacion - ERROR - Failed to save CSV evaluation results: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/mochi/Projects/Bank-Chatbot/app/evaluacion.py", line 507, in run_evaluation
+    row["llm_judge_sql_correctness_score"] = judge_verdict.get("sql_correctness_score")
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-19 16:35:17,007 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 16:35:52,191 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 16:38:27,690 - evaluacion - INFO - Starting evaluation process...
+2025-06-19 16:38:27,690 - evaluacion - INFO - Processing Test Case 1/7: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 16:38:38,662 - evaluacion - WARNING - Errors in Test Case 1: ['SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({\'0.0\', \'2024-06-21 09:09:00\', \'224.0\', \'POS PURCHASE COFFEE SHOP\', "Bo\'s Coffee - SM Megamall", \'115057.6\'})\n  Gen: frozenset({\'106566.6\', \'2024-06-25 09:24:00\', \'TRNQR4171713367\', \'335.0\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'Zus Coffee - Taft\'})\n  GT: frozenset({\'106566.6\', \'2024-06-25 09:24:00\', \'335.0\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'Zus Coffee - Taft\'})\n  Gen: frozenset({\'118028.6\', \'Zus Coffee - España\', \'2024-06-04 09:22:00\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'TRNQR9327072583\', \'290.0\'})\n  GT: frozenset({\'116454.6\', \'2024-06-05 09:29:00\', \'310.0\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', "Bo\'s Coffee - SM Megamall"})\n  Gen: frozenset({\'118592.6\', \'POS PURCHASE FAST FOOD\', \'Krispy Kreme - Glorietta 4\', \'2024-06-02 09:45:00\', \'0.0\', \'TRNCD3569514963\', \'224.0\'})\n  GT: frozenset({\'118028.6\', \'Zus Coffee - España\', \'2024-06-04 09:22:00\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'290.0\'})\n  Gen: frozenset({\'123590.6\', \'POS PURCHASE RESTAURANT\', \'2485.0\', \'Mesa - Greenbelt 5\', \'TRNQR3134152107\', \'0.0\', \'2024-06-19 09:58:00\'})\n  GT: frozenset({\'118592.6\', \'POS PURCHASE FAST FOOD\', \'Krispy Kreme - Glorietta 4\', \'2024-06-02 09:45:00\', \'0.0\', \'224.0\'})\n  Gen: frozenset({\'128293.6\', \'2024-06-14 09:14:00\', \'319.0\', \'TRNQR3174703852\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', "Bo\'s Coffee - Legazpi Village"})\n']
+2025-06-19 16:38:38,662 - evaluacion - INFO - Processing Test Case 2/7: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 16:38:44,085 - evaluacion - WARNING - Errors in Test Case 2: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'2024-08-11 11:07:00', 'POS PURCHASE GENERAL SHOPPING', '9883.0'})\n  Gen: frozenset({'2024-08-11 11:07:00', 'Glorietta - Glorietta 2', 'TRNQR5903241736', '9883.0'})\n  GT: frozenset({'2025-04-19 11:20:00', '10018.0', 'ATM WITHDRAWAL'})\n  Gen: frozenset({'2025-04-19 11:20:00', '10018.0', 'TRNATM8342480913', 'RCBC ATM - Makati - Circuit'})\n  GT: frozenset({'9597.0', 'POS PURCHASE GENERAL SHOPPING', '2025-01-11 10:31:00'})\n  Gen: frozenset({'9597.0', 'TRNQR4862459237', 'Power Mac Center - SM San Lazaro', '2025-01-11 10:31:00'})\n"]
+2025-06-19 16:38:44,086 - evaluacion - INFO - Processing Test Case 3/7: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-19 16:38:47,955 - evaluacion - INFO - Processing Test Case 4/7: ID=4 - 'Did I make any transactions on Christmas Day 2024?'
+2025-06-19 16:38:48,184 - evaluacion - WARNING - Errors in Test Case 4: ['Bot failed to generate SQL: An error occurred during Gemini API call: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.0-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 15\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 11\n}\n]']
+2025-06-19 16:38:48,184 - evaluacion - INFO - Processing Test Case 5/7: ID=5 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 16:38:48,984 - evaluacion - WARNING - Errors in Test Case 5: ['Bot failed to generate SQL: An error occurred during Gemini API call: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.0-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 15\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 11\n}\n]']
+2025-06-19 16:38:48,984 - evaluacion - INFO - Processing Test Case 6/7: ID=6 - 'How many coffee shop transactions did I have in February 2024?'
+2025-06-19 16:38:53,630 - evaluacion - WARNING - Errors in Test Case 6: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'24'})\n  Gen: frozenset({'12'})\n"]
+2025-06-19 16:38:53,630 - evaluacion - INFO - Processing Test Case 7/7: ID=7 - 'Show me all refunds.'
+2025-06-19 16:38:58,832 - evaluacion - WARNING - Errors in Test Case 7: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'1464.0', 'SHOPEE', 'REFUND CREDIT', '2024-03-30 09:14:00'})\n  Gen: frozenset({'2024-09-18 09:13:00', 'REFUND CREDIT', 'GRAB', 'TRNDP5895653396', '126567.11', '0.0', '483.0'})\n  GT: frozenset({'1909.0', '2024-12-21 09:21:00', 'REFUND CREDIT', 'LAZADA'})\n  Gen: frozenset({'2024-12-21 09:21:00', 'REFUND CREDIT', 'TRNDP5586158650', '1909.0', '0.0', 'LAZADA', '193224.7'})\n  GT: frozenset({'2025-01-08 09:40:00', 'REFUND CREDIT', 'TIKTOK SHP', '1328.0'})\n  Gen: frozenset({'291151.18', '845.0', 'REFUND CREDIT', '2025-06-16 09:28:00', 'TRNDP9885157214', '0.0', 'SHEIN'})\n  GT: frozenset({'2401.0', 'REFUND CREDIT', 'LAZADA', '2024-01-17 09:13:00'})\n  Gen: frozenset({'4224.0', 'REFUND CREDIT', 'TRNDP2024423519', '95569.49', '0.0', '2024-03-21 09:07:00', 'LAZADA'})\n  GT: frozenset({'845.0', 'SHEIN', 'REFUND CREDIT', '2025-06-16 09:28:00'})\n  Gen: frozenset({'REFUND CREDIT', '1328.0', '2025-01-08 09:40:00', 'TIKTOK SHP', '0.0', 'TRNDP5567745617', '216993.83'})\n"]
+2025-06-19 16:38:58,832 - evaluacion - INFO - Evaluation complete.
+2025-06-19 16:38:58,832 - evaluacion - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 16:38:27 PST+0800",
+  "total_test_cases": 7,
+  "sql_execution_match_count": 1,
+  "failed_sql_generation": 2,
+  "failed_sql_execution": 2,
+  "failed_ground_truth_execution": 2,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 1
+}
+2025-06-19 16:38:58,835 - evaluacion - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_163858.json
+2025-06-19 16:38:58,835 - evaluacion - ERROR - Failed to save CSV evaluation results: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/mochi/Projects/Bank-Chatbot/app/evaluacion.py", line 491, in run_evaluation
+    row["llm_judge_sql_correctness_score"] = judge_verdict.get("sql_correctness_score")
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-19 16:42:43,588 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 16:45:27,355 - evaluacion - INFO - Starting evaluation process...
+2025-06-19 16:45:27,355 - evaluacion - INFO - Processing Test Case 1/7: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 16:45:37,609 - evaluacion - WARNING - Errors in Test Case 1: ['SQL execution result mismatch: Row count mismatch: 46 vs 44']
+2025-06-19 16:45:37,609 - evaluacion - INFO - Processing Test Case 2/7: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 16:45:53,664 - evaluacion - WARNING - Errors in Test Case 2: ['Bot failed to generate SQL: Error decoding JSON from Gemini: Expecting value: line 1 column 1 (char 0)']
+2025-06-19 16:45:53,664 - evaluacion - INFO - Processing Test Case 3/7: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-19 16:45:57,547 - evaluacion - INFO - Processing Test Case 4/7: ID=4 - 'Did I make any transactions on Christmas Day 2024?'
+2025-06-19 16:46:03,480 - evaluacion - WARNING - Errors in Test Case 4: ['SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({\'0.0\', \'306.0\', \'POS PURCHASE COFFEE SHOP\', \'2024-12-25 09:06:00\'})\n  Gen: frozenset({\'0.0\', \'185963.7\', \'306.0\', \'2024-12-25 09:06:00\', \'TRNCD3955753170\', "Bo\'s Coffee - SM Megamall", \'POS PURCHASE COFFEE SHOP\'})\n  GT: frozenset({\'2024-12-25 09:12:00\', \'0.0\', \'POS PURCHASE FAST FOOD\', \'423.0\'})\n  Gen: frozenset({\'0.0\', \'Greenwich - SM City Manila\', \'423.0\', \'POS PURCHASE FAST FOOD\', \'2024-12-25 09:12:00\', \'TRNCD9000871607\', \'185540.7\'})\n']
+2025-06-19 16:46:03,481 - evaluacion - INFO - Processing Test Case 5/7: ID=5 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 16:46:08,326 - evaluacion - INFO - Processing Test Case 6/7: ID=6 - 'How many coffee shop transactions did I have in February 2024?'
+2025-06-19 16:46:12,862 - evaluacion - WARNING - Errors in Test Case 6: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'24'})\n  Gen: frozenset({'12'})\n"]
+2025-06-19 16:46:12,862 - evaluacion - INFO - Processing Test Case 7/7: ID=7 - 'Show me all refunds.'
+2025-06-19 16:46:23,772 - evaluacion - WARNING - Errors in Test Case 7: ['Bot failed to generate SQL: Error decoding JSON from Gemini: Expecting value: line 1 column 1 (char 0)']
+2025-06-19 16:46:23,773 - evaluacion - INFO - Evaluation complete.
+2025-06-19 16:46:23,773 - evaluacion - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 16:45:27 PST+0800",
+  "total_test_cases": 7,
+  "sql_execution_match_count": 2,
+  "failed_sql_generation": 2,
+  "failed_sql_execution": 2,
+  "failed_ground_truth_execution": 2,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 2
+}
+2025-06-19 16:46:23,774 - evaluacion - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_164623.json
+2025-06-19 16:46:23,774 - evaluacion - ERROR - Failed to save CSV evaluation results: 'NoneType' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/mochi/Projects/Bank-Chatbot/app/evaluacion.py", line 491, in run_evaluation
+    row["llm_judge_sql_correctness_score"] = judge_verdict.get("sql_correctness_score")
+AttributeError: 'NoneType' object has no attribute 'get'
+2025-06-19 18:33:54,842 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 18:34:25,955 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 18:34:26,284 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 18:38:20,855 - evaluacion - INFO - Starting evaluation process...
+2025-06-19 18:38:20,855 - evaluacion - INFO - Processing Test Case 1/7: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 18:38:42,450 - evaluacion - WARNING - Errors in Test Case 1: ['Ground Truth SQL execution error: no such table: transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 18:38:42,451 - evaluacion - INFO - Processing Test Case 2/7: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 18:39:09,730 - evaluacion - WARNING - Errors in Test Case 2: ['Ground Truth SQL execution error: no such table: transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 18:39:09,730 - evaluacion - INFO - Processing Test Case 3/7: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-19 18:39:21,608 - evaluacion - WARNING - Errors in Test Case 3: ['Ground Truth SQL execution error: no such table: transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 18:39:21,609 - evaluacion - INFO - Processing Test Case 4/7: ID=4 - 'Did I make any transactions on Christmas Day 2024?'
+2025-06-19 18:39:42,499 - evaluacion - WARNING - Errors in Test Case 4: ['Ground Truth SQL execution error: no such table: transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 18:39:42,499 - evaluacion - INFO - Processing Test Case 5/7: ID=5 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 18:40:00,725 - evaluacion - WARNING - Errors in Test Case 5: ['Ground Truth SQL execution error: no such table: transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 18:40:00,726 - evaluacion - INFO - Processing Test Case 6/7: ID=6 - 'How many coffee shop transactions did I have in February 2024?'
+2025-06-19 18:40:29,484 - evaluacion - WARNING - Errors in Test Case 6: ['Ground Truth SQL execution error: no such table: transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 18:40:29,484 - evaluacion - INFO - Processing Test Case 7/7: ID=7 - 'Show me all refunds.'
+2025-06-19 18:40:48,558 - evaluacion - WARNING - Errors in Test Case 7: ['Ground Truth SQL execution error: no such table: transactions', 'Ground Truth SQL failed to execute, cannot proceed with result match.']
+2025-06-19 18:40:48,558 - evaluacion - INFO - Evaluation complete.
+2025-06-19 18:40:48,559 - evaluacion - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 18:38:20 PST+0800",
+  "total_test_cases": 7,
+  "sql_execution_match_count": 0,
+  "failed_sql_generation": 0,
+  "failed_sql_execution": 0,
+  "failed_ground_truth_execution": 7,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 0
+}
+2025-06-19 18:40:48,561 - evaluacion - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_184048.json
+2025-06-19 18:40:48,563 - evaluacion - INFO - Detailed evaluation results saved to evaluation_results/evaluation_details_20250619_184048.csv
+2025-06-19 18:43:22,891 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 18:44:53,386 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 18:44:53,703 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 18:46:45,856 - evaluation_module - INFO - Starting evaluation process...
+2025-06-19 18:46:45,856 - evaluation_module - INFO - Processing Test Case 1/5: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 18:47:05,283 - evaluation_module - WARNING - Errors in Test Case 1: ['SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({"Bo\'s Coffee - Legazpi Village", \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'128293.6\', \'2024-06-14 09:14:00\', \'319.0\'})\n  Gen: frozenset({"Bo\'s Coffee - Legazpi Village", \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'128293.6\', \'2024-06-14 09:14:00\', \'319.0\', \'TRNQR3174703852\'})\n  GT: frozenset({"Dunkin\' - Ayala Triangle", \'POS PURCHASE FAST FOOD\', \'0.0\', \'106901.6\', \'339.0\', \'2024-06-24 09:55:00\'})\n  Gen: frozenset({"Dunkin\' - Ayala Triangle", \'POS PURCHASE FAST FOOD\', \'0.0\', \'106901.6\', \'TRNQR8794397550\', \'339.0\', \'2024-06-24 09:55:00\'})\n  GT: frozenset({"Toby\'s Estate - Legazpi St, Makati", \'126737.6\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'280.0\', \'2024-06-17 09:45:00\'})\n  Gen: frozenset({"Toby\'s Estate - Legazpi St, Makati", \'TRNQR8502115824\', \'126737.6\', \'0.0\', \'POS PURCHASE COFFEE SHOP\', \'280.0\', \'2024-06-17 09:45:00\'})\n  GT: frozenset({\'0.0\', \'108704.6\', \'1566.0\', \'2024-06-12 09:21:00\', \'Marugame Udon - SM City Sta. Mesa\', \'POS PURCHASE RESTAURANT\'})\n  Gen: frozenset({\'0.0\', \'108704.6\', \'1566.0\', \'TRNCD1486573818\', \'2024-06-12 09:21:00\', \'Marugame Udon - SM City Sta. Mesa\', \'POS PURCHASE RESTAURANT\'})\n  GT: frozenset({\'0.0\', \'2024-06-16 09:24:00\', \'POS PURCHASE COFFEE SHOP\', \'127713.6\', \'Coffee Bean & Tea Leaf - Greenhills Promenade\', \'249.0\'})\n  Gen: frozenset({\'0.0\', \'MAMAMO INC.\', \'SALARY CREDIT\', \'TRNDP5557450248\', \'134564.6\', \'2024-06-28 09:10:00\', \'29574.0\'})\n']
+2025-06-19 18:47:05,283 - evaluation_module - INFO - Processing Test Case 2/5: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 18:47:24,327 - evaluation_module - WARNING - Errors in Test Case 2: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'10018.0', '2025-04-19 11:20:00', 'ATM WITHDRAWAL'})\n  Gen: frozenset({'POS PURCHASE GENERAL SHOPPING', '2024-08-11 11:07:00', '9883.0', 'Glorietta - Glorietta 2', 'TRNQR5903241736'})\n  GT: frozenset({'9597.0', 'POS PURCHASE GENERAL SHOPPING', '2025-01-11 10:31:00'})\n  Gen: frozenset({'RCBC ATM - Makati - Circuit', '2025-04-19 11:20:00', 'ATM WITHDRAWAL', '10018.0', 'TRNATM8342480913'})\n  GT: frozenset({'9883.0', 'POS PURCHASE GENERAL SHOPPING', '2024-08-11 11:07:00'})\n  Gen: frozenset({'TRNQR4862459237', 'POS PURCHASE GENERAL SHOPPING', '9597.0', 'Power Mac Center - SM San Lazaro', '2025-01-11 10:31:00'})\n"]
+2025-06-19 18:47:24,328 - evaluation_module - INFO - Processing Test Case 3/5: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-19 18:47:37,127 - evaluation_module - INFO - Processing Test Case 4/5: ID=4 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 18:47:51,976 - evaluation_module - INFO - Processing Test Case 5/5: ID=5 - 'Show me all refunds.'
+2025-06-19 18:47:55,875 - evaluation_module - WARNING - Errors in Test Case 5: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'1328.0', 'TIKTOK SHP', '2025-01-08 09:40:00', 'REFUND CREDIT'})\n  Gen: frozenset({'126567.11', '2024-09-18 09:13:00', '0.0', '483.0', 'REFUND CREDIT', 'TRNDP5895653396', 'GRAB'})\n  GT: frozenset({'1909.0', 'LAZADA', '2024-12-21 09:21:00', 'REFUND CREDIT'})\n  Gen: frozenset({'1464.0', '0.0', 'SHOPEE', '105419.49', 'REFUND CREDIT', '2024-03-30 09:14:00', 'TRNDP9084999699'})\n  GT: frozenset({'2024-01-17 09:13:00', 'LAZADA', '2401.0', 'REFUND CREDIT'})\n  Gen: frozenset({'1909.0', '193224.7', '0.0', 'TRNDP5586158650', 'REFUND CREDIT', 'LAZADA', '2024-12-21 09:21:00'})\n  GT: frozenset({'2024-09-18 09:13:00', '483.0', 'GRAB', 'REFUND CREDIT'})\n  Gen: frozenset({'2024-03-21 09:07:00', '0.0', 'REFUND CREDIT', 'TRNDP2024423519', 'LAZADA', '4224.0', '95569.49'})\n  GT: frozenset({'2025-04-25 09:33:00', '3668.0', 'SHEIN', 'REFUND CREDIT'})\n  Gen: frozenset({'2025-04-25 09:33:00', 'TRNDP9253946220', '229413.17', '0.0', '3668.0', 'SHEIN', 'REFUND CREDIT'})\n", 'Bot failed to generate NL response: An error occurred during Gemini API call: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.5-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 10\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 5\n}\n]', 'LLM Judge returned an error: An unexpected error occurred: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.5-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 10\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 4\n}\n]']
+2025-06-19 18:47:55,876 - evaluation_module - INFO - Evaluation complete.
+2025-06-19 18:47:55,876 - evaluation_module - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 18:46:45 PST+0800",
+  "total_test_cases": 5,
+  "sql_execution_match_count": 2,
+  "failed_sql_generation": 0,
+  "failed_sql_execution": 0,
+  "failed_ground_truth_execution": 0,
+  "failed_nl_generation": 1,
+  "failed_llm_judge_response": 1,
+  "successful_end_to_end_cases": 2
+}
+2025-06-19 18:47:55,877 - evaluation_module - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_184755.json
+2025-06-19 18:47:55,879 - evaluation_module - INFO - Detailed evaluation results saved to evaluation_results/evaluation_details_20250619_184755.csv
+2025-06-19 18:50:54,872 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 18:51:19,706 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 18:51:59,786 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 18:52:11,455 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 18:54:07,688 - evaluation_module - INFO - Starting evaluation process...
+2025-06-19 18:54:07,688 - evaluation_module - INFO - Processing Test Case 1/5: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 18:54:36,141 - evaluation_module - WARNING - Errors in Test Case 1: ['SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({"Bo\'s Coffee - Legazpi Village", \'2024-06-14 09:14:00\', \'0.0\', \'128293.6\', \'319.0\', \'POS PURCHASE COFFEE SHOP\'})\n  Gen: frozenset({"Bo\'s Coffee - Legazpi Village", \'TRNQR3174703852\', \'2024-06-14 09:14:00\', \'0.0\', \'128293.6\', \'319.0\', \'POS PURCHASE COFFEE SHOP\'})\n  GT: frozenset({"Toby\'s Estate - Legazpi St, Makati", \'0.0\', \'280.0\', \'POS PURCHASE COFFEE SHOP\', \'126737.6\', \'2024-06-17 09:45:00\'})\n  Gen: frozenset({\'0.0\', \'108416.6\', \'Tim Hortons - Uptown Bonifacio\', \'2024-06-13 09:33:00\', \'POS PURCHASE COFFEE SHOP\', \'288.0\', \'TRNCD7956610666\'})\n  GT: frozenset({\'0.0\', \'108416.6\', \'Tim Hortons - Uptown Bonifacio\', \'2024-06-13 09:33:00\', \'POS PURCHASE COFFEE SHOP\', \'288.0\'})\n  Gen: frozenset({\'0.0\', \'2024-06-23 09:28:00\', \'TRNCD1026083261\', \'Coffee Bean & Tea Leaf - Trinoma\', \'107755.6\', \'POS PURCHASE COFFEE SHOP\', \'187.0\'})\n  GT: frozenset({\'0.0\', \'2024-06-12 09:13:00\', \'110270.6\', \'Zus Coffee - España\', \'POS PURCHASE COFFEE SHOP\', \'150.0\'})\n  Gen: frozenset({\'0.0\', \'2024-06-27 09:20:00\', \'105473.6\', \'TRNQR7170485004\', \'Commune Cafe - Poblacion, Makati\', \'POS PURCHASE COFFEE SHOP\', \'339.0\'})\n  GT: frozenset({\'0.0\', \'2024-06-23 09:28:00\', \'Coffee Bean & Tea Leaf - Trinoma\', \'107755.6\', \'POS PURCHASE COFFEE SHOP\', \'187.0\'})\n  Gen: frozenset({\'0.0\', \'TRNCD1279593747\', \'2024-06-12 09:13:00\', \'110270.6\', \'Zus Coffee - España\', \'POS PURCHASE COFFEE SHOP\', \'150.0\'})\n']
+2025-06-19 18:54:36,142 - evaluation_module - INFO - Processing Test Case 2/5: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 18:54:54,469 - evaluation_module - WARNING - Errors in Test Case 2: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'2025-04-19 11:20:00', 'ATM WITHDRAWAL', '10018.0'})\n  Gen: frozenset({'2025-04-19 11:20:00', 'RCBC ATM - Makati - Circuit', 'ATM WITHDRAWAL', '10018.0'})\n  GT: frozenset({'9597.0', '2025-01-11 10:31:00', 'POS PURCHASE GENERAL SHOPPING'})\n  Gen: frozenset({'9597.0', '2025-01-11 10:31:00', 'Power Mac Center - SM San Lazaro', 'POS PURCHASE GENERAL SHOPPING'})\n  GT: frozenset({'9883.0', 'POS PURCHASE GENERAL SHOPPING', '2024-08-11 11:07:00'})\n  Gen: frozenset({'Glorietta - Glorietta 2', '9883.0', 'POS PURCHASE GENERAL SHOPPING', '2024-08-11 11:07:00'})\n"]
+2025-06-19 18:54:54,469 - evaluation_module - INFO - Processing Test Case 3/5: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-19 18:55:07,036 - evaluation_module - INFO - Processing Test Case 4/5: ID=4 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 18:55:31,475 - evaluation_module - INFO - Processing Test Case 5/5: ID=5 - 'Show me all refunds.'
+2025-06-19 18:55:50,460 - evaluation_module - WARNING - Errors in Test Case 5: ["SQL execution result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'1464.0', '2024-03-30 09:14:00', 'SHOPEE', 'REFUND CREDIT'})\n  Gen: frozenset({'1464.0', '0.0', 'SHOPEE', '105419.49', '2024-03-30 09:14:00', 'REFUND CREDIT', 'TRNDP9084999699'})\n  GT: frozenset({'2401.0', '2024-01-17 09:13:00', 'LAZADA', 'REFUND CREDIT'})\n  Gen: frozenset({'2761.0', 'TRNDP3640082496', '2025-05-20 09:42:00', '0.0', 'SHOPEE', '253043.83', 'REFUND CREDIT'})\n  GT: frozenset({'2761.0', '2025-05-20 09:42:00', 'REFUND CREDIT', 'SHOPEE'})\n  Gen: frozenset({'4224.0', '95569.49', 'LAZADA', '0.0', 'TRNDP2024423519', 'REFUND CREDIT', '2024-03-21 09:07:00'})\n  GT: frozenset({'3539.0', '2024-03-01 09:32:00', 'SHEIN', 'REFUND CREDIT'})\n  Gen: frozenset({'GRAB', '0.0', 'REFUND CREDIT', 'TRNDP5895653396', '126567.11', '483.0', '2024-09-18 09:13:00'})\n  GT: frozenset({'4224.0', 'LAZADA', '2024-03-21 09:07:00', 'REFUND CREDIT'})\n  Gen: frozenset({'LAZADA', '0.0', '2024-01-17 09:13:00', '2401.0', 'REFUND CREDIT', '67795.0', 'TRNDP2807790052'})\n"]
+2025-06-19 18:55:50,460 - evaluation_module - INFO - Evaluation complete.
+2025-06-19 18:55:50,460 - evaluation_module - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 18:54:07 PST+0800",
+  "total_test_cases": 5,
+  "sql_execution_match_count": 2,
+  "failed_sql_generation": 0,
+  "failed_sql_execution": 0,
+  "failed_ground_truth_execution": 0,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 2
+}
+2025-06-19 18:55:50,462 - evaluation_module - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_185550.json
+2025-06-19 18:55:50,463 - evaluation_module - INFO - Detailed evaluation results saved to evaluation_results/evaluation_details_20250619_185550.csv
+2025-06-19 19:06:40,792 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 19:06:40,892 - evaluation_module - INFO - Starting evaluation process...
+2025-06-19 19:06:40,892 - evaluation_module - INFO - Processing Test Case 1/5: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 19:07:02,104 - evaluation_module - INFO - Processing Test Case 2/5: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 19:07:10,715 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 19:33:37,519 - WARNING -  * Debugger is active!
+2025-06-19 19:33:37,526 - INFO -  * Debugger PIN: 904-818-630
+2025-06-19 19:33:41,469 - INFO -  * Detected change in '/Users/mochi/Projects/Bank-Chatbot/app/evaluation_module.py', reloading
+2025-06-19 19:33:41,937 - WARNING -  * Debugger is active!
+2025-06-19 19:33:41,941 - INFO -  * Debugger PIN: 904-818-630
+2025-06-19 19:33:44,607 - INFO - 127.0.0.1 - - [19/Jun/2025 19:33:44] "GET / HTTP/1.1" 200 -
+2025-06-19 19:33:44,642 - INFO - 127.0.0.1 - - [19/Jun/2025 19:33:44] "[36mGET /static/estilo.css HTTP/1.1[0m" 304 -
+2025-06-19 19:33:44,642 - INFO - 127.0.0.1 - - [19/Jun/2025 19:33:44] "[36mGET /static/escrito.js HTTP/1.1[0m" 304 -
+2025-06-19 19:33:48,820 - ERROR - Gemini API error
+Traceback (most recent call last):
+  File "/Users/mochi/Projects/Bank-Chatbot/app/app_conev.py", line 153, in get_gemini_response
+    return json.loads(json_str)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-06-19 19:33:48,826 - INFO - 127.0.0.1 - - [19/Jun/2025 19:33:48] "POST /chat HTTP/1.1" 200 -
+2025-06-19 19:34:03,251 - INFO - 127.0.0.1 - - [19/Jun/2025 19:34:03] "POST /chat HTTP/1.1" 200 -
+2025-06-19 19:34:17,583 - ERROR - Gemini API error
+Traceback (most recent call last):
+  File "/Users/mochi/Projects/Bank-Chatbot/app/app_conev.py", line 153, in get_gemini_response
+    return json.loads(json_str)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-06-19 19:34:17,585 - INFO - 127.0.0.1 - - [19/Jun/2025 19:34:17] "POST /chat HTTP/1.1" 200 -
+2025-06-19 19:34:33,263 - ERROR - Gemini API error
+Traceback (most recent call last):
+  File "/Users/mochi/Projects/Bank-Chatbot/app/app_conev.py", line 153, in get_gemini_response
+    return json.loads(json_str)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2025-06-19 19:34:33,267 - INFO - 127.0.0.1 - - [19/Jun/2025 19:34:33] "POST /chat HTTP/1.1" 200 -
+2025-06-19 19:34:48,829 - INFO -  * Detected change in '/Users/mochi/Projects/Bank-Chatbot/app/evaluation_module.py', reloading
+2025-06-19 19:35:23,574 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 19:35:23,895 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 19:38:36,148 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 19:48:08,275 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 19:50:13,805 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 20:09:29,100 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 20:09:29,432 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 20:14:51,068 - evaluacion - INFO - Starting evaluation process...
+2025-06-19 20:14:51,069 - evaluacion - INFO - Processing Test Case 1/5: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 20:15:39,193 - evaluacion - WARNING - Errors in Test Case 1: ['SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({"Dunkin\' - Ayala Triangle", \'339.0\', \'0.0\', \'POS PURCHASE FAST FOOD\', \'106901.6\', \'2024-06-24 09:55:00\'})\n  Gen: frozenset({"Dunkin\' - Ayala Triangle", \'339.0\', \'0.0\', \'POS PURCHASE FAST FOOD\', \'2024-06-24 09:55:00\'})\n  GT: frozenset({"Dunkin\' - Ortigas Center", \'115258.6\', \'0.0\', \'627.0\', \'POS PURCHASE FAST FOOD\', \'2024-06-07 10:06:00\'})\n  Gen: frozenset({"Dunkin\' - Ortigas Center", \'0.0\', \'627.0\', \'POS PURCHASE FAST FOOD\', \'2024-06-07 10:06:00\'})\n  GT: frozenset({\'0.0\', \'111541.6\', \'POS PURCHASE RESTAURANT\', \'2126.0\', \'2024-06-10 09:36:00\', \'Manam - Greenbelt 2\'})\n  Gen: frozenset({\'0.0\', \'2024-06-16 09:24:00\', \'Coffee Bean & Tea Leaf - Greenhills Promenade\', \'249.0\', \'POS PURCHASE COFFEE SHOP\'})\n  GT: frozenset({\'0.0\', \'127713.6\', \'2024-06-16 09:24:00\', \'Coffee Bean & Tea Leaf - Greenhills Promenade\', \'249.0\', \'POS PURCHASE COFFEE SHOP\'})\n  Gen: frozenset({\'0.0\', \'2024-06-19 09:58:00\', \'POS PURCHASE RESTAURANT\', \'Mesa - Greenbelt 5\', \'2485.0\'})\n  GT: frozenset({\'0.0\', \'2024-06-19 09:58:00\', \'POS PURCHASE RESTAURANT\', \'Mesa - Greenbelt 5\', \'123590.6\', \'2485.0\'})\n  Gen: frozenset({\'0.0\', \'326.0\', \'2024-06-19 09:47:00\', \'POS PURCHASE COFFEE SHOP\', \'Starbucks - Ayala Triangle\'})\n']
+2025-06-19 20:15:39,194 - evaluacion - INFO - Processing Test Case 2/5: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 20:15:57,723 - evaluacion - WARNING - Errors in Test Case 2: ["SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'10018.0', 'ATM WITHDRAWAL', '2025-04-19 11:20:00'})\n  Gen: frozenset({'2024-08-11 11:07:00', 'POS PURCHASE GENERAL SHOPPING', '9883.0', 'Glorietta - Glorietta 2'})\n  GT: frozenset({'2024-08-11 11:07:00', 'POS PURCHASE GENERAL SHOPPING', '9883.0'})\n  Gen: frozenset({'Power Mac Center - SM San Lazaro', '9597.0', 'POS PURCHASE GENERAL SHOPPING', '2025-01-11 10:31:00'})\n  GT: frozenset({'9597.0', 'POS PURCHASE GENERAL SHOPPING', '2025-01-11 10:31:00'})\n  Gen: frozenset({'RCBC ATM - Makati - Circuit', '10018.0', 'ATM WITHDRAWAL', '2025-04-19 11:20:00'})\n"]
+2025-06-19 20:15:57,723 - evaluacion - INFO - Processing Test Case 3/5: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-19 20:16:07,505 - evaluacion - INFO - Processing Test Case 4/5: ID=4 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 20:16:19,632 - evaluacion - INFO - Processing Test Case 5/5: ID=5 - 'Show me all refunds.'
+2025-06-19 20:16:36,291 - evaluacion - WARNING - Errors in Test Case 5: ["SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'1464.0', '2024-03-30 09:14:00', 'REFUND CREDIT', 'SHOPEE'})\n  Gen: frozenset({'2024-03-21 09:07:00', 'REFUND CREDIT', 'LAZADA', '4224.0', 'TRNDP2024423519'})\n  GT: frozenset({'2024-01-17 09:13:00', 'REFUND CREDIT', '2401.0', 'LAZADA'})\n  Gen: frozenset({'REFUND CREDIT', '1328.0', 'TIKTOK SHP', 'TRNDP5567745617', '2025-01-08 09:40:00'})\n  GT: frozenset({'2024-12-21 09:21:00', 'LAZADA', 'REFUND CREDIT', '1909.0'})\n  Gen: frozenset({'REFUND CREDIT', '2024-12-21 09:21:00', '1909.0', 'LAZADA', 'TRNDP5586158650'})\n  GT: frozenset({'2025-06-16 09:28:00', 'REFUND CREDIT', '845.0', 'SHEIN'})\n  Gen: frozenset({'REFUND CREDIT', 'GRAB', '483.0', 'TRNDP5895653396', '2024-09-18 09:13:00'})\n  GT: frozenset({'3668.0', 'REFUND CREDIT', 'SHEIN', '2025-04-25 09:33:00'})\n  Gen: frozenset({'REFUND CREDIT', 'TRNDP2807790052', '2401.0', 'LAZADA', '2024-01-17 09:13:00'})\n"]
+2025-06-19 20:16:36,292 - evaluacion - INFO - Evaluation complete.
+2025-06-19 20:16:36,292 - evaluacion - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 20:14:51 PST+0800",
+  "total_test_cases": 5,
+  "sql_execution_match_count": 2,
+  "failed_sql_generation": 0,
+  "failed_sql_execution": 0,
+  "failed_ground_truth_execution": 0,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 2
+}
+2025-06-19 20:16:36,297 - evaluacion - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_201636.json
+2025-06-19 20:16:36,300 - evaluacion - INFO - Detailed evaluation results saved to evaluation_results/evaluation_details_20250619_201636.csv
+2025-06-19 20:46:39,112 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 20:49:23,157 - evaluacion - INFO - Evaluation module loaded.
+2025-06-19 20:50:37,760 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 20:50:38,080 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-19 20:53:49,115 - evaluation_module - INFO - Starting evaluation process...
+2025-06-19 20:53:49,115 - evaluation_module - INFO - Processing Test Case 1/5: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-19 20:54:07,546 - evaluation_module - INFO - Processing Test Case 2/5: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-19 20:54:28,032 - evaluation_module - WARNING - Errors in Test Case 2: ["SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'2025-01-11 10:31:00', '9597.0', 'POS PURCHASE GENERAL SHOPPING'})\n  Gen: frozenset({'9597.0', '203414.83', '2025-01-11 10:31:00', 'POS PURCHASE GENERAL SHOPPING', 'Power Mac Center - SM San Lazaro', '0.0'})\n  GT: frozenset({'ATM WITHDRAWAL', '10018.0', '2025-04-19 11:20:00'})\n  Gen: frozenset({'POS PURCHASE GENERAL SHOPPING', '90118.16', '9883.0', '0.0', '2024-08-11 11:07:00', 'Glorietta - Glorietta 2'})\n  GT: frozenset({'POS PURCHASE GENERAL SHOPPING', '2024-08-11 11:07:00', '9883.0'})\n  Gen: frozenset({'RCBC ATM - Makati - Circuit', '229592.17', 'ATM WITHDRAWAL', '2025-04-19 11:20:00', '0.0', '10018.0'})\n"]
+2025-06-19 20:54:28,032 - evaluation_module - INFO - Processing Test Case 3/5: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-19 20:54:45,031 - evaluation_module - INFO - Processing Test Case 4/5: ID=4 - 'List all ATM withdrawals in January 2025.'
+2025-06-19 20:55:05,917 - evaluation_module - INFO - Processing Test Case 5/5: ID=5 - 'Show me all refunds.'
+2025-06-19 20:55:23,430 - evaluation_module - WARNING - Errors in Test Case 5: ["SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'1328.0', 'TRNDP5567745617', 'TIKTOK SHP', '2025-01-08 09:40:00', 'REFUND CREDIT'})\n  Gen: frozenset({'1328.0', 'TIKTOK SHP', '2025-01-08 09:40:00', 'REFUND CREDIT', '0.0', '216993.83'})\n  GT: frozenset({'2024-03-21 09:07:00', 'LAZADA', '4224.0', 'REFUND CREDIT', 'TRNDP2024423519'})\n  Gen: frozenset({'2024-09-18 09:13:00', '483.0', '126567.11', 'GRAB', 'REFUND CREDIT', '0.0'})\n  GT: frozenset({'2024-09-18 09:13:00', '483.0', 'TRNDP5895653396', 'GRAB', 'REFUND CREDIT'})\n  Gen: frozenset({'2025-06-16 09:28:00', '845.0', 'REFUND CREDIT', '0.0', 'SHEIN', '291151.18'})\n  GT: frozenset({'2025-06-16 09:28:00', '845.0', 'REFUND CREDIT', 'SHEIN', 'TRNDP9885157214'})\n  Gen: frozenset({'3539.0', '83600.49', 'REFUND CREDIT', '0.0', 'SHEIN', '2024-03-01 09:32:00'})\n  GT: frozenset({'LAZADA', '1909.0', '2024-12-21 09:21:00', 'REFUND CREDIT', 'TRNDP5586158650'})\n  Gen: frozenset({'3668.0', '2025-04-25 09:33:00', '229413.17', 'REFUND CREDIT', '0.0', 'SHEIN'})\n"]
+2025-06-19 20:55:23,431 - evaluation_module - INFO - Evaluation complete.
+2025-06-19 20:55:23,431 - evaluation_module - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-19 20:53:49 PST+0800",
+  "total_test_cases": 5,
+  "sql_execution_match_count": 3,
+  "failed_sql_generation": 0,
+  "failed_sql_execution": 0,
+  "failed_ground_truth_execution": 0,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 3
+}
+2025-06-19 20:55:23,435 - evaluation_module - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250619_205523.json
+2025-06-19 20:55:23,439 - evaluation_module - INFO - Detailed evaluation results saved to evaluation_results/evaluation_details_20250619_205523.csv
+2025-06-20 13:42:50,859 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-20 13:42:51,216 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-20 13:44:26,075 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-20 13:47:37,646 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-20 13:50:05,173 - evaluation_module - INFO - Starting evaluation process...
+2025-06-20 13:50:05,174 - evaluation_module - INFO - Processing Test Case 1/5: ID=1 - 'Show me all transactions for June 2024.'
+2025-06-20 13:50:21,961 - evaluation_module - INFO - Processing Test Case 2/5: ID=2 - 'What were my top 3 largest withdrawals?'
+2025-06-20 13:50:34,248 - evaluation_module - WARNING - Errors in Test Case 2: ["SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'10018.0', '2025-04-19 11:20:00', 'ATM WITHDRAWAL'})\n  Gen: frozenset({'2025-01-11 10:31:00', 'Power Mac Center - SM San Lazaro', '0.0', '9597.0', '203414.83', 'POS PURCHASE GENERAL SHOPPING'})\n  GT: frozenset({'2025-01-11 10:31:00', 'POS PURCHASE GENERAL SHOPPING', '9597.0'})\n  Gen: frozenset({'ATM WITHDRAWAL', '2025-04-19 11:20:00', 'RCBC ATM - Makati - Circuit', '229592.17', '0.0', '10018.0'})\n  GT: frozenset({'9883.0', '2024-08-11 11:07:00', 'POS PURCHASE GENERAL SHOPPING'})\n  Gen: frozenset({'Glorietta - Glorietta 2', '9883.0', '2024-08-11 11:07:00', '0.0', 'POS PURCHASE GENERAL SHOPPING', '90118.16'})\n"]
+2025-06-20 13:50:34,249 - evaluation_module - INFO - Processing Test Case 3/5: ID=3 - 'How much did I deposit in total for 2024?'
+2025-06-20 13:50:47,945 - evaluation_module - INFO - Processing Test Case 4/5: ID=4 - 'List all ATM withdrawals in January 2025.'
+2025-06-20 13:51:02,409 - evaluation_module - INFO - Processing Test Case 5/5: ID=5 - 'Show me all refunds.'
+2025-06-20 13:51:10,641 - evaluation_module - WARNING - Errors in Test Case 5: ["SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'1464.0', 'TRNDP9084999699', 'REFUND CREDIT', '2024-03-30 09:14:00', 'SHOPEE'})\n  Gen: frozenset({'1464.0', '105419.49', '0.0', 'REFUND CREDIT', '2024-03-30 09:14:00', 'SHOPEE'})\n  GT: frozenset({'2024-03-01 09:32:00', 'TRNDP2975294582', 'SHEIN', '3539.0', 'REFUND CREDIT'})\n  Gen: frozenset({'2024-03-01 09:32:00', 'SHEIN', '0.0', '3539.0', 'REFUND CREDIT', '83600.49'})\n  GT: frozenset({'3668.0', '2025-04-25 09:33:00', 'TRNDP9253946220', 'SHEIN', 'REFUND CREDIT'})\n  Gen: frozenset({'2024-09-18 09:13:00', 'GRAB', '483.0', '0.0', '126567.11', 'REFUND CREDIT'})\n  GT: frozenset({'845.0', 'TRNDP9885157214', 'SHEIN', '2025-06-16 09:28:00', 'REFUND CREDIT'})\n  Gen: frozenset({'253043.83', '2761.0', '2025-05-20 09:42:00', '0.0', 'REFUND CREDIT', 'SHOPEE'})\n  GT: frozenset({'GRAB', 'TRNDP5895653396', '483.0', '2024-09-18 09:13:00', 'REFUND CREDIT'})\n  Gen: frozenset({'3668.0', '2025-04-25 09:33:00', '229413.17', 'SHEIN', '0.0', 'REFUND CREDIT'})\n", 'LLM Judge error: Unexpected error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {\n  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"\n  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"\n  quota_dimensions {\n    key: "model"\n    value: "gemini-2.5-flash"\n  }\n  quota_dimensions {\n    key: "location"\n    value: "global"\n  }\n  quota_value: 10\n}\n, links {\n  description: "Learn more about Gemini API quotas"\n  url: "https://ai.google.dev/gemini-api/docs/rate-limits"\n}\n, retry_delay {\n  seconds: 49\n}\n]']
+2025-06-20 13:51:10,641 - evaluation_module - INFO - Evaluation complete.
+2025-06-20 13:51:10,641 - evaluation_module - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-20 13:50:05 PST+0800",
+  "total_test_cases": 5,
+  "sql_execution_match_count": 3,
+  "failed_sql_generation": 0,
+  "failed_sql_execution": 0,
+  "failed_ground_truth_execution": 0,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 1,
+  "successful_end_to_end_cases": 3
+}
+2025-06-20 13:51:10,642 - evaluation_module - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250620_135110.json
+2025-06-20 13:51:10,643 - evaluation_module - INFO - Detailed evaluation results saved to evaluation_results/evaluation_details_20250620_135110.csv
+2025-06-20 13:52:13,554 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-20 13:53:36,319 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-20 13:53:39,817 - evaluation_module - INFO - Evaluation module loaded.
+2025-06-20 13:55:19,619 - evaluation_module - INFO - Starting evaluation process...
+2025-06-20 13:55:19,620 - evaluation_module - INFO - Processing Test Case 1/3: ID=1 - 'What were my top 3 largest withdrawals?'
+2025-06-20 13:55:37,145 - evaluation_module - WARNING - Errors in Test Case 1: ["SQL result mismatch: Result mismatch detected. First differing rows (max 5):\n  GT: frozenset({'2024-08-11 11:07:00', '9883.0', 'POS PURCHASE GENERAL SHOPPING'})\n  Gen: frozenset({'0.0', '2024-08-11 11:07:00', '9883.0', 'POS PURCHASE GENERAL SHOPPING', 'Glorietta - Glorietta 2', '90118.16'})\n  GT: frozenset({'2025-01-11 10:31:00', 'POS PURCHASE GENERAL SHOPPING', '9597.0'})\n  Gen: frozenset({'0.0', '2025-01-11 10:31:00', '9597.0', 'POS PURCHASE GENERAL SHOPPING', '203414.83', 'Power Mac Center - SM San Lazaro'})\n  GT: frozenset({'2025-04-19 11:20:00', 'ATM WITHDRAWAL', '10018.0'})\n  Gen: frozenset({'0.0', 'RCBC ATM - Makati - Circuit', '10018.0', '2025-04-19 11:20:00', 'ATM WITHDRAWAL', '229592.17'})\n"]
+2025-06-20 13:55:37,146 - evaluation_module - INFO - Processing Test Case 2/3: ID=2 - 'How much did I deposit in total for 2024?'
+2025-06-20 13:55:46,662 - evaluation_module - INFO - Processing Test Case 3/3: ID=3 - 'List all ATM withdrawals in January 2025.'
+2025-06-20 13:56:03,870 - evaluation_module - INFO - Evaluation complete.
+2025-06-20 13:56:03,871 - evaluation_module - INFO - Overall Evaluation Results Summary:
+{
+  "timestamp": "2025-06-20 13:55:19 PST+0800",
+  "total_test_cases": 3,
+  "sql_execution_match_count": 2,
+  "failed_sql_generation": 0,
+  "failed_sql_execution": 0,
+  "failed_ground_truth_execution": 0,
+  "failed_nl_generation": 0,
+  "failed_llm_judge_response": 0,
+  "successful_end_to_end_cases": 2
+}
+2025-06-20 13:56:03,874 - evaluation_module - INFO - Evaluation results saved to evaluation_results/evaluation_results_20250620_135603.json
+2025-06-20 13:56:03,875 - evaluation_module - INFO - Detailed evaluation results saved to evaluation_results/evaluation_details_20250620_135603.csv

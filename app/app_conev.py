@@ -136,49 +136,20 @@ get_philippine_holidays_cached()
 
 
 # --- Prompt Generation Function ---
-def get_banking_assistant_prompt(schema_str, preferred_language, conversation_history_list=None, query_results_with_headers=None):
+def get_banking_assistant_prompt(schema_str, conversation_history_list=None, query_results_with_headers=None):
     """
-    Constructs the prompt for the Gemini model based on the schema, preferred language,
+    Constructs the prompt for the Gemini model based on the schema,
     conversation history, and SQL query results.
     """
     ph_holidays = get_philippine_holidays_cached()
     holidays_str = "\n".join([f"- {h}" for h in ph_holidays])
     current_date_for_prompt = datetime.now(ANTIPOLO_TZ)
 
-    language_instruction = ""
-    examples_section = ""
-
-    # Define common examples once
+    # Define common example once
     common_example_sql = "SELECT SUM(COALESCE(Withdrawal_Amount, 0)) FROM bank_transactions WHERE LOWER(\"Transaction_Details\") LIKE '%service charge%';"
     common_example_nl_en = "You've spent a total of ₱500.00 on service charges. Is there anything else you'd like to check about your expenses?"
-    common_example_nl_es = "Ha gastado un total de ₱500.00 en cargos por servicio. ¿Hay algo más que le gustaría revisar sobre sus gastos?"
 
-    if preferred_language == "es":
-        language_instruction = "Debes responder completamente en español latinoamericano. Todos los términos financieros, saludos y explicaciones deben estar en español latinoamericano."
-        examples_section = f"""
-Ejemplo (Inglés):
-
-Usuario: ¿Cuánto gasté en cargos por servicio?
-
-Respuesta:
-{{
-  "sql": "{common_example_sql}",
-  "natural_language_response": "{common_example_nl_es}"
-}}
-
-Ejemplo (Español):
-
-Usuario: ¿Cuánto gasté en cargos por servicio?
-
-Respuesta:
-{{
-  "sql": "{common_example_sql}",
-  "natural_language_response": "{common_example_nl_es}"
-}}
-"""
-    else: # Default to English for 'en' or any other value
-        language_instruction = "You must respond entirely in English. All financial terms, greetings, and explanations should be in English."
-        examples_section = f"""
+    examples_section = f"""
 Example:
 
 User: How much did I spend on service charges?
@@ -193,7 +164,7 @@ Response:
     prompt_parts = [f"""
 You are a friendly and intelligent banking assistant that helps users understand their financial activity by translating questions into SQL and providing clear, conversational answers.
 
-{language_instruction}
+You must respond entirely in English. All financial terms, greetings, and explanations should be in English.
 
 Your expertise is with bank accounts of a bank, and you're familiar with Philippine banking habits, cities (including acronyms like QC, MKT, etc.), and common transaction types (e.g., service charges, deposits, ATM Withdrawal_Amount). Do not mention the bank name, but you must answer if the user asked the bank name.
 
@@ -240,11 +211,6 @@ Be brief, helpful, and brand-friendly. For bullet forms, it must be clear, very 
                 prompt_parts.append(f"User: {turn['content']}")
             elif turn["role"] == "assistant" and "content" in turn: 
                 # Only include the natural language content of previous assistant turns
-                # It's important to be careful here: the current get_gemini_response
-                # returns a dict with 'sql' and 'natural_language_response'.
-                # For `conversation_history_list` to contain just the 'content' of assistant turns,
-                # you need to ensure you're only appending the NL response to `messages`.
-                # Let's adjust the way messages are stored slightly in the chat route.
                 prompt_parts.append(f"Assistant: {turn['content']}")
         prompt_parts.append("----------------------------")
 
@@ -264,11 +230,11 @@ Be brief, helpful, and brand-friendly. For bullet forms, it must be clear, very 
     return "\n".join(prompt_parts)
 
 # --- Gemini Interaction Function (used by both app and evaluation_module) ---
-def get_gemini_response(user_question, model_obj, preferred_language, conversation_history_list=None, query_results_with_headers=None):
+def get_gemini_response(user_question, model_obj, conversation_history_list=None, query_results_with_headers=None):
     """
     Sends a prompt to the Gemini model and parses its JSON response.
     """
-    full_prompt = get_banking_assistant_prompt(get_schema_string(), preferred_language, conversation_history_list, query_results_with_headers)
+    full_prompt = get_banking_assistant_prompt(get_schema_string(), conversation_history_list, query_results_with_headers)
     full_prompt_with_query = f"{full_prompt}\n\nUser: {user_question}\n\nAssistant Response:"
 
     logger.debug(f"Sending prompt to Gemini: {full_prompt_with_query[:500]}...")
@@ -295,17 +261,22 @@ def get_gemini_response(user_question, model_obj, preferred_language, conversati
     except json.JSONDecodeError as e:
         logger.error(f"Error decoding JSON from Gemini: {e}. Raw content: START>>>{content}<<<END", exc_info=True)
         # Attempt to recover an NL response if JSON fails but there's some text
-        if "natural_language_response" in content:
-            # This is a crude attempt; for production, a more robust regex might be needed
-            try:
-                nl_part = content.split('"natural_language_response": "')[1].split('"')[0]
-                return {"error": f"JSON decode error: {e}", "natural_language_response": nl_part}
-            except IndexError:
-                pass
-        return {"error": f"Error decoding JSON from Gemini: {e}", "raw_content": content}
+        # This part is crucial for minimizing "error responses" by trying to salvage NL
+        try:
+            # A more robust (but still not perfect) way to extract NL if JSON fails
+            # This looks for the value associated with "natural_language_response" key.
+            nl_match = re.search(r'"natural_language_response"\s*:\s*"(.*?)(?<!\\)"', content, re.DOTALL)
+            if nl_match:
+                nl_part = nl_match.group(1).replace('\\"', '"') # Handle escaped quotes
+                logger.warning(f"Recovered natural language response after JSON error: '{nl_part}'")
+                return {"error": "JSON decode error, partial NL recovered", "natural_language_response": nl_part}
+        except Exception as e_nl_extract:
+            logger.error(f"Failed to extract NL after JSON error: {e_nl_extract}", exc_info=True)
+        return {"error": f"Error decoding JSON from Gemini: {e}", "raw_content": content, "natural_language_response": "I had trouble understanding the response from our AI. Could you please rephrase your question?"}
     except Exception as e:
         logger.error(f"An error occurred during Gemini API call: {e}", exc_info=True)
-        return {"error": f"An error occurred during Gemini API call: {e}"}
+        return {"error": f"An error occurred during Gemini API call: {e}", "natural_language_response": "I'm currently experiencing some technical difficulties. Please try again in a moment."}
+
 
 # --- Flask Routes ---
 
@@ -321,41 +292,36 @@ def index():
 def chat():
     """Handles user chat queries, interacts with Gemini, and manages database queries."""
     user_query = request.json.get('query', '').strip()
-    preferred_language = request.json.get('language', 'en')
 
     if not user_query:
         logger.warning("Received empty query from frontend.")
-        return jsonify({"response": "Please enter a query." if preferred_language == "en" else "Por favor, introduce una consulta."}), 400
+        return jsonify({"response": "Please enter a query."}), 400
 
-    logger.info(f"User Query ({preferred_language}): '{user_query}'")
+    logger.info(f"User Query: '{user_query}'")
 
     messages = session.get('messages', [])
     # Append user message for history before any processing
     messages.append({"role": "user", "content": user_query}) 
 
     exit_phrases_en = ["exit", "goodbye", "thank you", "thanks", "thats all", "that's all", "bye"]
-    exit_phrases_es = ["salir", "adiós", "gracias", "eso es todo", "hasta luego"]
     greeting_phrases_en = ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"]
-    greeting_phrases_es = ["hola", "buenos días", "buenas tardes", "buenas noches"]
 
     # --- Handle Exit Phrases ---
-    if (preferred_language == "en" and any(phrase in user_query.lower() for phrase in exit_phrases_en)) or \
-       (preferred_language == "es" and any(phrase in user_query.lower() for phrase in exit_phrases_es)):
-        assistant_response_text = "¡Gracias por chatear! ¡Que tengas un gran día!" if preferred_language == "es" else "Thanks for chatting! Have a great day!"
+    if any(phrase in user_query.lower() for phrase in exit_phrases_en):
+        assistant_response_text = "Thanks for chatting! Have a great day!"
         
         # Store only the NL content for the assistant's turn in history
-        messages.append({"role": "assistant", "content": assistant_response_text}) # Removed 'sql' key for simple NL turns
+        messages.append({"role": "assistant", "content": assistant_response_text}) 
         session['messages'] = messages
         logger.info(f"Chat ended with exit phrase. Assistant Response: '{assistant_response_text}'")
         return jsonify({"response": assistant_response_text, "sql_query": None})
 
     # --- Handle Greeting Phrases ---
-    if (preferred_language == "en" and any(phrase in user_query.lower() for phrase in greeting_phrases_en)) or \
-       (preferred_language == "es" and any(phrase in user_query.lower() for phrase in greeting_phrases_es)):
-        assistant_response_text = "¡Hola! ¿Cómo puedo ayudarte hoy con tus finanzas?" if preferred_language == "es" else "Hi there! How can I help you with your finances today?"
+    if any(phrase in user_query.lower() for phrase in greeting_phrases_en):
+        assistant_response_text = "Hi there! How can I help you with your finances today?"
         
         # Store only the NL content for the assistant's turn in history
-        messages.append({"role": "assistant", "content": assistant_response_text}) # Removed 'sql' key
+        messages.append({"role": "assistant", "content": assistant_response_text}) 
         session['messages'] = messages
         logger.info(f"Chat responded with greeting. Assistant Response: '{assistant_response_text}'")
         return jsonify({"response": assistant_response_text, "sql_query": None})
@@ -363,11 +329,12 @@ def chat():
     # --- Proceed with SQL generation if not an exit or greeting ---
     sql_query = None
     assistant_response_text = ""
+    query_results_with_headers = None # Initialize to None
 
     # First call to Gemini for SQL generation
-    response_for_sql = get_gemini_response(user_query, model, preferred_language, conversation_history_list=messages)
+    response_for_sql = get_gemini_response(user_query, model, conversation_history_list=messages)
 
-    if response_for_sql and "sql" in response_for_sql and response_for_sql["sql"]: # Ensure 'sql' key exists and is not empty
+    if response_for_sql and "sql" in response_for_sql and response_for_sql["sql"]:
         sql_query = response_for_sql["sql"]
         logger.info(f"Generated SQL Query: '{sql_query}'")
         
@@ -378,64 +345,49 @@ def chat():
         # This demonstration code executes the SQL directly for evaluation purposes.
         logger.warning(f"SECURITY ALERT: Directly executing LLM-generated SQL: '{sql_query}'. This is dangerous in production without proper validation.")
         
+        conn = None
+        try:
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute(sql_query)
+            query_results = cursor.fetchall()
+            
+            column_headers = [description[0] for description in cursor.description]
+            query_results_with_headers = {"headers": column_headers, "rows": [list(row) for row in query_results]}
+            logger.info(f"SQL Query Executed Successfully. Results count: {len(query_results)} rows.")
+
+            # Second call to Gemini for NL response, now with SQL results
+            final_response_dict = get_gemini_response(
+                user_query, model,
+                conversation_history_list=messages, # Pass updated messages for context
+                query_results_with_headers=query_results_with_headers
+            )
+
+            if final_response_dict and "natural_language_response" in final_response_dict:
+                assistant_response_text = final_response_dict['natural_language_response']
+                logger.info(f"Final Assistant Response (NL): '{assistant_response_text}'")
+            else:
+                # Fallback if the second Gemini call fails to produce NL
+                assistant_response_text = final_response_dict.get("natural_language_response", "I executed the query, but I had trouble forming a clear response. Please try again.")
+                logger.error(f"Gemini failed to generate final NL response after query execution. Assistant response: '{assistant_response_text}'")
+                sql_query = None # Clear SQL query if NL generation failed after execution
+
+        except sqlite3.Error as e:
+            assistant_response_text = f"It looks like there was a database issue when trying to get your information. Please make sure your request is clear, or try again later. (Error: {e})"
+            logger.error(f"Database error during SQL execution for query '{sql_query}': {e}", exc_info=True)
+            sql_query = None # Clear SQL query if execution failed
+        except Exception as e:
+            assistant_response_text = "An unexpected error occurred while processing your request. Please try again or rephrase your question."
+            logger.critical(f"An unexpected critical error occurred: {e}", exc_info=True)
+            sql_query = None # Clear SQL query on unexpected error
+        finally:
+            if conn:
+                conn.close()
     else:
-        # Gemini failed to generate a valid SQL query
-        assistant_response_text = "Lo siento, no pude generar una consulta SQL para esa solicitud. ¿Podrías reformularla?" if preferred_language == "es" else "I'm sorry, I couldn't generate a SQL query for that request. Could you please rephrase it?"
-        
-        # Store only the NL content for assistant's turn in history
-        messages.append({"role": "assistant", "content": assistant_response_text}) # Removed 'sql' key
-        session['messages'] = messages
+        # Gemini failed to generate a valid SQL query in the first place
+        assistant_response_text = response_for_sql.get("natural_language_response", "I'm sorry, I couldn't understand that request well enough to generate a SQL query. Could you please rephrase it or be more specific?")
         logger.warning(f"Gemini failed to generate SQL for user query: '{user_query}'. Assistant response: '{assistant_response_text}'")
-        return jsonify({"response": assistant_response_text, "sql_query": None})
-
-    conn = None
-    query_results_with_headers = None
-    try:
-        conn = get_db_connection()
-        cursor = conn.cursor()
-        cursor.execute(sql_query)
-        query_results = cursor.fetchall()
-        
-        column_headers = [description[0] for description in cursor.description]
-        query_results_with_headers = {"headers": column_headers, "rows": [list(row) for row in query_results]}
-        logger.info(f"SQL Query Executed Successfully. Results count: {len(query_results)} rows.")
-
-        # Second call to Gemini for NL response, now with SQL results
-        final_response_dict = get_gemini_response(
-            user_query, model,
-            preferred_language,
-            conversation_history_list=messages, # Pass updated messages for context
-            query_results_with_headers=query_results_with_headers
-        )
-
-        if final_response_dict and "natural_language_response" in final_response_dict:
-            assistant_response_text = final_response_dict['natural_language_response']
-            logger.info(f"Final Assistant Response (NL): '{assistant_response_text}'")
-        else:
-            assistant_response_text = "Ejecuté la consulta, pero tuve problemas para formar una respuesta clara. Por favor, inténtalo de nuevo." if preferred_language == "es" else "I executed the query, but I had trouble forming a clear response. Please try again."
-            logger.error(f"Gemini failed to generate final NL response after query execution. Assistant response: '{assistant_response_text}'")
-            # If NL generation failed, we might not want to show the SQL query to the user
-            sql_query = None 
-
-    except sqlite3.Error as e:
-        assistant_response_text = (
-            f"Tuve un problema al procesar esa solicitud: Error de base de datos. ¿Podrías reformular tu pregunta?"
-            if preferred_language == "es" else
-            f"I ran into an issue processing that request: Database error. Could you try rephrasing your question?"
-        )
-        logger.error(f"Database error during SQL execution for query '{sql_query}': {e}", exc_info=True)
-        sql_query = None # Clear SQL query if execution failed
-    except Exception as e:
-        assistant_response_text = (
-            f"Ocurrió un error inesperado. Por favor, inténtalo de nuevo o reformula tu pregunta."
-            if preferred_language == "es" else
-            f"An unexpected error occurred. Please try again or rephrase your question."
-        )
-        logger.critical(f"An unexpected critical error occurred: {e}", exc_info=True)
-        sql_query = None # Clear SQL query on unexpected error
-    finally:
-        if conn:
-            conn.close()
+        sql_query = None # Ensure no SQL is sent if it failed generation
 
     # Append the assistant's final response (NL + potentially SQL) to session messages
     # Only store the NL content for the history for the *prompt*, but keep SQL in the jsonify for the UI.

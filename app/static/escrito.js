@@ -17,15 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             error_server: "Sorry, I encountered an error communicating with the server. Please try again later.",
             error_network: "An error occurred while connecting to the server. Please check your network connection."
             // REMOVED: placeholder_disabled as it's not needed with inline indicator
-        },
-        es: {
-            title: "🏦 Asistente Bancario",
-            welcomeHeader: "¡Hola! ¿Cómo puedo ayudarte hoy?",
-            initialMessage: "¡Hola! Soy tu Asistente Bancario. ¿Cómo puedo ayudarte hoy?",
-            placeholder: "Escribe tu mensaje...",
-            error_server: "Lo siento, encontré un error al comunicarme con el servidor. Por favor, inténtalo de nuevo más tarde.",
-            error_network: "Ocurrió un error al conectar con el servidor. Por favor, verifica tu conexión a la red."
-            // REMOVED: placeholder_disabled
         }
     };
 

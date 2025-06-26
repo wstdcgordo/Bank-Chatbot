@@ -209,7 +209,8 @@ Philippine Holidays (for context, not for filtering unless explicitly asked abou
         - Use `= 'keyword'` for exact matches *only* when the user provides a precise name or description. Otherwise, `LIKE` is generally preferred.
         - If the user asks about a specific category (e.g., "coffee shop purchases"), use `LIKE '%coffee shop%'` on the `Transaction_Details` column.
         - **Prioritize Specificity:** If the user provides both a date and a category, combine the filters: `WHERE Date_Timestamp LIKE 'YYYY-MM-DD%' AND Transaction_Details LIKE '%keyword%'`.
-    - For date-based queries on `Date_Timestamp` (which is TEXT):
+    - For date-based queries on `Date_Timestamp` (which is TIMESTAMP):
+        - Do not query beyond the current date: `{current_date_for_prompt}`.
         - *Always* use `LIKE` for date comparisons.
         - If the user provides a *full* date (YYYY-MM-DD), use `Date_Timestamp LIKE 'YYYY-MM-DD%'`.
         - If the user provides only a month (YYYY-MM), use `Date_Timestamp LIKE 'YYYY-MM%'`.
